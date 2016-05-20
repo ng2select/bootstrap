@@ -3,10 +3,13 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
+  'jquery': 'vendor/jquery/dist/jquery.min.js',
+  'selectpicker': 'vendor/bootstrap-select/dist/js/bootstrap-select.min.js'
 };
 
 /** User packages configuration. */
 const packages: any = {
+
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -29,6 +32,11 @@ const barrels: string[] = [
   // App specific barrels.
   'app',
   'app/shared',
+  'app/multiple',
+  'app/accordian',
+  'app/accordian-group',
+  'app/tabs',
+  'app/popup',
   /** @cli-barrel */
 ];
 
