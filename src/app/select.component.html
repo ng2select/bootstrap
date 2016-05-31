@@ -16,7 +16,44 @@
 
 <popup-app></popup-app>-->
 
-<select class="show-tick" [(ngModel)]="ngModel" multiple data-actions-box="true">
+<select class="show-tick" [(ngModel)]="ngModel['basicMultiselect']" multiple data-actions-box="true" data-style="">
+  <option *ngFor="let option of selectOptions" [value]="option.id"> <!-- data-content="<span class='label label-success'>Relish</span>" -->
+    {{ option.name }}
+  </option>
+</select>
+
+<select class="show-tick" [(ngModel)]="ngModel['multiselect']" multiple data-actions-box="true" data-style="btn-info">
+  <option *ngFor="let option of selectOptions" [value]="option.id"> <!-- data-content="<span class='label label-success'>Relish</span>" -->
+    {{ option.name }}
+  </option>
+</select>
+
+<select class="show-tick" [(ngModel)]="ngModel['singleselect']" data-style="btn-primary">
+  <option *ngFor="let option of selectOptions" [value]="option.id"> <!-- data-content="<span class='label label-success'>Relish</span>" -->
+    {{ option.name }}
+  </option>
+</select>
+
+<select class="show-tick" [(ngModel)]="ngModel['multiselect']" multiple data-actions-box="true" data-style="btn-info">
+  <option *ngFor="let option of selectOptions" [value]="option.id"> <!-- data-content="<span class='label label-success'>Relish</span>" -->
+    {{ option.name }}
+  </option>
+</select>
+
+<select class="show-tick" [(ngModel)]="ngModel['singleselect2']" data-style="btn-success">
+  <option *ngFor="let option of selectOptions" [value]="option.id"> <!-- data-content="<span class='label label-success'>Relish</span>" -->
+    {{ option.name }}
+  </option>
+</select>
+
+<select class="show-tick" [(ngModel)]="ngModel['multiselect2']" multiple data-actions-box="false" data-style="btn-warning">
+  <option *ngFor="let option of selectOptions" [value]="option.id"> <!-- data-content="<span class='label label-success'>Relish</span>" -->
+    {{ option.name }}
+  </option>
+</select>
+
+<select class="show-tick" [(ngModel)]="ngModel['singleselect3']" data-style="btn-danger">
+  <option [value]="">--select--</option>
   <option *ngFor="let option of selectOptions" [value]="option.id"> <!-- data-content="<span class='label label-success'>Relish</span>" -->
     {{ option.name }}
   </option>
@@ -28,8 +65,9 @@
   </option>
 </multi-select>-->
 
+<pre>
 {{ngModel | json}}
-
+</pre>
 <!--<p>
   <button type="button" class="btn btn-default" (click)="removeDynamic()">
     Remove last dynamic

@@ -22,7 +22,7 @@ export class SelectAppComponent implements OnInit, OnDestroy {
   selectOptions: any[];
   // groups: any[];
   // isOpen = false;
-  ngModel = 2;
+  ngModel = { singleselect: 2, multiselect: [2]};
   // title = 'select works!';
 
   constructor() {

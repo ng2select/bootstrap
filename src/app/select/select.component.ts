@@ -168,7 +168,6 @@ export class SelectDirective implements OnInit, AfterViewInit, ControlValueAcces
 }
 
 export class DefaultSelectConfig implements ISelectConfig {
-  public style: string = 'btn-info';
   public size: number = 4;
   public selectedTextFormat: string = 'count > 2';
 }
