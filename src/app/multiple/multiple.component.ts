@@ -24,7 +24,7 @@ export class SelectMultipleDirective implements OnInit {
   myModelProperty = this.myOptions[0];
 
   constructor() { console.clear(); }
-  /* todo: configure <select /> to be hidden and hide artificial 
+  /* todo: configure <select /> to be hidden and hide artificial
   select popuę-pbox when on mobile dev
   */
 

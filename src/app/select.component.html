@@ -1,4 +1,4 @@
-<select-multiple></select-multiple>
+<!--<select-multiple></select-multiple>
 
 <hr/>
 
@@ -14,16 +14,21 @@
 
 <hr/>
 
-<popup-app></popup-app>
+<popup-app></popup-app>-->
 
-<!--
-  <select [(ngModel)]="ngModel" multi>
-  <option>one</option>
-  <option>two</option>
+<select class="show-tick" [(ngModel)]="ngModel" multiple data-actions-box="true">
+  <option *ngFor="let option of selectOptions" [value]="option.id"> <!-- data-content="<span class='label label-success'>Relish</span>" -->
+    {{ option.name }}
+  </option>
 </select>
 
-{{ngModel}}
--->
+<!--<multi-select (onChange)="onChange($event)">
+  <option *ngFor="let option of selectOptions" [value]="option.id">
+    {{ option.name }}
+  </option>
+</multi-select>-->
+
+{{ngModel | json}}
 
 <!--<p>
   <button type="button" class="btn btn-default" (click)="removeDynamic()">

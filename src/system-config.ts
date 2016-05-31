@@ -4,6 +4,7 @@
 /** Map relative paths to URLs. */
 const map: any = {
   'jquery': 'vendor/jquery/dist/jquery.min.js',
+  'bootstrap': 'vendor/bootstrap/dist/js/bootstrap.min.js',
   'selectpicker': 'vendor/bootstrap-select/dist/js/bootstrap-select.min.js'
 };
 
@@ -37,6 +38,8 @@ const barrels: string[] = [
   'app/accordian-group',
   'app/tabs',
   'app/popup',
+  'app/multi',
+  'app/select',
   /** @cli-barrel */
 ];
 

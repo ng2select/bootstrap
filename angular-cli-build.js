@@ -13,7 +13,9 @@ module.exports = function(defaults) {
       'rxjs/**/*.js',
       '@angular/**/*.js',
       'jquery/dist/jquery.min.js',
-      'bootstrap-select/dist/js/bootstrap-select.min.js'
+      'bootstrap/dist/**',
+      'bootstrap-select/dist/**'
+      //'bootstrap-select/dist/js/bootstrap-select.min.js'
     ]
   });
 };

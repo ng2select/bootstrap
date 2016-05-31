@@ -6,24 +6,26 @@ import { AccordianGroupComponent } from './accordian-group/';
 import { SelectMultipleDirective } from './multiple/';
 import { Tab, Tabset } from './tabs/';
 import { PopupAppComponent } from './popup/';
+import { MultiComponent } from './multi/';
+import { SelectDirective } from './select';
 
 @Component({
   moduleId: module.id,
   selector: 'select-app',
   templateUrl: 'select.component.html',
   styleUrls: ['select.component.css'],
-  directives: [Tab, Tabset, PopupAppComponent, SelectMultipleDirective]
+  directives: [Tab, Tabset, PopupAppComponent, SelectMultipleDirective, MultiComponent, SelectDirective]
 })
 export class SelectAppComponent implements OnInit, OnDestroy {
   tabs: any;
   // city: any;
-  // cities: any[];
+  selectOptions: any[];
   // groups: any[];
   // isOpen = false;
-  ngModel = null;
+  ngModel = 2;
   // title = 'select works!';
 
-  constructor(){
+  constructor() {
     this.tabs = [
       { title: 'About', content: 'This is the About tab' },
       { title: 'Blog', content: 'This is our blog' },
@@ -31,14 +33,23 @@ export class SelectAppComponent implements OnInit, OnDestroy {
     ];
   }
 
-  ngOnInit(){
-    // this.cities = [{
-    //   id: 1,
-    //   name: 'slc'
-    // },{
-    //   id: 2,
-    //   name: 'logan'    
-    // }];
+  ngOnInit() {
+    this.selectOptions = [{
+      id: 1,
+      name: 'slc'
+    }, {
+      id: 2,
+      name: 'logan'
+    }, {
+      id: 3,
+      name: 'ogden'      
+    }, { 
+      id: 4,
+      name: 'layton'      
+    }, {
+      id: 5,
+      name: 'brigham'      
+    }];
 
     // this.groups = [
     //   {
@@ -56,11 +67,12 @@ export class SelectAppComponent implements OnInit, OnDestroy {
   //   this.groups.pop();
   // }
 
-  onChange(newVal){
+  onChange(newVal) {
     console.log('newVal', newVal);
+    this.ngModel = newVal;
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
 
   }
 }
