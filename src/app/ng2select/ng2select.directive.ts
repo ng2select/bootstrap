@@ -1,5 +1,6 @@
 import { Component, Directive, ElementRef, EventEmitter, forwardRef, Host, HostBinding, Input, Output, OnInit, OnChanges, OnDestroy, Provider, SimpleChange, ViewChild, AfterViewInit } from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR, CORE_DIRECTIVES} from "@angular/common"; import * as $ from 'jquery';
+import {ControlValueAccessor, NG_VALUE_ACCESSOR, CORE_DIRECTIVES} from "@angular/common"; 
+import * as $ from 'jquery';
 import 'bootstrap';
 import 'selectpicker';
 import { INg2SelectConfig, Ng2SelectConfig } from './';
