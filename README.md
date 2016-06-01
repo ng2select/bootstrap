@@ -1,3 +1,9 @@
+<!--
+  Title: ng2select
+  Description: Angular 2 bootstrap select directive module
+  Author: ng2select
+  -->
+
 [![Build Status](https://travis-ci.org/ng2select/bootstrap.svg?branch=master)](https://travis-ci.org/ng2select/bootstrap)
 
 ## beta
