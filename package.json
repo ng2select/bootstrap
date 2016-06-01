@@ -10,7 +10,7 @@
     "format": "clang-format -i -style=file --glob=src/**/*.ts",
     "pree2e": "webdriver-manager update",
     "e2e": "protractor",
-    "test": "typings install && ng build && karma start ./config/karma.conf.js"
+    "test": "ng build && karma start ./config/karma.conf.js"
   },
   "private": false,
   "dependencies": {
