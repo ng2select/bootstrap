@@ -5,13 +5,13 @@ import {
   expect,
   inject
 } from '@angular/core/testing';
-import { DemoService } from './demo.service';
+import { ExampleService } from './example.service';
 
 describe('Demo Service', () => {
-  beforeEachProviders(() => [DemoService]);
+  beforeEachProviders(() => [ExampleService]);
 
   it('should ...',
-      inject([DemoService], (service: DemoService) => {
+      inject([ExampleService], (service: ExampleService) => {
     expect(service).toBeTruthy();
   }));
 });

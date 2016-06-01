@@ -34,8 +34,10 @@ const barrels: string[] = [
   'app',
   'app/shared',
   'app/ng2select',
-  'app/demo',
-  'app/demo/shared'
+  'app/example',
+  'app/example/shared',
+  'app/example/http',
+  'app/example/ui-ux',
   /** @cli-barrel */
 ];
 
