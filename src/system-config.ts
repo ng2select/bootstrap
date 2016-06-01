@@ -33,13 +33,9 @@ const barrels: string[] = [
   // App specific barrels.
   'app',
   'app/shared',
-  'app/multiple',
-  'app/accordian',
-  'app/accordian-group',
-  'app/tabs',
-  'app/popup',
-  'app/multi',
-  'app/select',
+  'app/ng2select',
+  'app/demo',
+  'app/demo/shared'
   /** @cli-barrel */
 ];
 

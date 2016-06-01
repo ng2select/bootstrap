@@ -1,21 +1,3 @@
-<!--<select-multiple></select-multiple>
-
-<hr/>
-
-<tabset>
-  <tab title="First tab">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam magni quia ut harum facilis, ullam deleniti porro dignissimos
-    quasi at molestiae sapiente natus, neque voluptatum ad consequuntur cupiditate nemo sunt.
-  </tab>
-  <tab *ngFor="let tab of tabs" [title]="tab.title">
-    {{ tab.content }}
-  </tab>
-</tabset>
-
-<hr/>
-
-<popup-app></popup-app>-->
-
 <select class="show-tick" [(ngModel)]="ngModel['basicMultiselect']" multiple data-actions-box="true" data-style="">
   <option *ngFor="let option of selectOptions" [value]="option.id"> <!-- data-content="<span class='label label-success'>Relish</span>" -->
     {{ option.name }}
@@ -53,52 +35,12 @@
 </select>
 
 <select class="show-tick" [(ngModel)]="ngModel['singleselect3']" data-style="btn-danger">
-  <option [value]="">--select--</option>
+  <option [value]=""><-- select --></option>
   <option *ngFor="let option of selectOptions" [value]="option.id"> <!-- data-content="<span class='label label-success'>Relish</span>" -->
     {{ option.name }}
   </option>
 </select>
 
-<!--<multi-select (onChange)="onChange($event)">
-  <option *ngFor="let option of selectOptions" [value]="option.id">
-    {{ option.name }}
-  </option>
-</multi-select>-->
-
 <pre>
 {{ngModel | json}}
 </pre>
-<!--<p>
-  <button type="button" class="btn btn-default" (click)="removeDynamic()">
-    Remove last dynamic
-  </button>
-  </p>
-  
-  <app-accordion>
-  <app-accordion-group heading="This is the header" isOpen="true">
-    This is the content
-  </app-accordion-group>
-  <app-accordion-group [heading]="group.heading" *ngFor="let group of groups">
-    {{group.content}}
-  </app-accordion-group>
-  <app-accordion-group heading="Another group" [isOpen]="isOpen">
-    More content
-  </app-accordion-group>
-</app-accordion>-->
-
-<!--<hr/>
-
-<h1>
-  {{ngModel}}
-</h1>-->
-
-<!--<select>
-  <option *ngFor="let c of cities" [value]="c.id">{{c.name}}</option>
-</select>-->
-
-<!--
-<select [(ngModel)]="ngModel" (change)="onChange($event)" multiple>
-  <ng-content select="select-btn"></ng-content>
-  <ng-content select="select-option"></ng-content>
-</select>
--->
