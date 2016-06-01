@@ -4,18 +4,19 @@ import {
   describe,
   expect,
   it,
-  inject,
+  inject
 } from '@angular/core/testing';
 import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
+import { HTTP_PROVIDERS } from '@angular/http';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { HttpComponent } from './http.component';
-import { ExampleService } from '../shared';
+import { ExampleService, ExceptionService } from '../../shared';
 
 describe('Component: Http', () => {
   let builder: TestComponentBuilder;
 
-  beforeEachProviders(() => [HttpComponent, ExampleService]);
+  beforeEachProviders(() => [ExampleService, ExceptionService, HttpComponent, HTTP_PROVIDERS]);
   beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
     builder = tcb;
   }));
@@ -38,7 +39,7 @@ describe('Component: Http', () => {
 @Component({
   selector: 'test',
   template: `
-    <app-http></app-http>
+    <app-example-http></app-example-http>
   `,
   directives: [HttpComponent]
 })

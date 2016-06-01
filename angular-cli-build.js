@@ -14,8 +14,8 @@ module.exports = function(defaults) {
       '@angular/**/*.js',
       'jquery/dist/jquery.min.js',
       'bootstrap/dist/**',
-      'bootstrap-select/dist/**'
-      //'bootstrap-select/dist/js/bootstrap-select.min.js'
+      'bootstrap-select/dist/**',
+      'highlight.js/**',
     ]
   });
 };

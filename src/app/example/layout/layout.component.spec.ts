@@ -9,25 +9,25 @@ import {
 import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { UiUxComponent } from './ui-ux.component';
+import { ExampleLayoutComponent } from './layout.component';
 
-describe('Component: UiUx', () => {
+describe('Component: Layout', () => {
   let builder: TestComponentBuilder;
 
-  beforeEachProviders(() => [UiUxComponent]);
+  beforeEachProviders(() => [ExampleLayoutComponent]);
   beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
     builder = tcb;
   }));
 
-  it('should inject the component', inject([UiUxComponent],
-      (component: UiUxComponent) => {
+  it('should inject the component', inject([ExampleLayoutComponent],
+      (component: ExampleLayoutComponent) => {
     expect(component).toBeTruthy();
   }));
 
   it('should create the component', inject([], () => {
-    return builder.createAsync(UiUxComponentTestController)
+    return builder.createAsync(ExampleLayoutComponentTestController)
       .then((fixture: ComponentFixture<any>) => {
-        let query = fixture.debugElement.query(By.directive(UiUxComponent));
+        let query = fixture.debugElement.query(By.directive(ExampleLayoutComponent));
         expect(query).toBeTruthy();
         expect(query.componentInstance).toBeTruthy();
       });
@@ -37,10 +37,10 @@ describe('Component: UiUx', () => {
 @Component({
   selector: 'test',
   template: `
-    <app-example-ui-ux></app-example-ui-ux>
+    <app-example-layout></app-example-layout>
   `,
-  directives: [UiUxComponent]
+  directives: [ExampleLayoutComponent]
 })
-class UiUxComponentTestController {
+class ExampleLayoutComponentTestController {
 }
 

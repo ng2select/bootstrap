@@ -5,7 +5,8 @@
 const map: any = {
   'jquery': 'vendor/jquery/dist/jquery.min.js',
   'bootstrap': 'vendor/bootstrap/dist/js/bootstrap.min.js',
-  'selectpicker': 'vendor/bootstrap-select/dist/js/bootstrap-select.min.js'
+  'selectpicker': 'vendor/bootstrap-select/dist/js/bootstrap-select.min.js',
+  'highlight.js': 'vendor/highlight.js/lib/highlight.js'
 };
 
 /** User packages configuration. */
@@ -38,6 +39,7 @@ const barrels: string[] = [
   'app/example/shared',
   'app/example/http',
   'app/example/ui-ux',
+  'app/example/layout',
   /** @cli-barrel */
 ];
 
