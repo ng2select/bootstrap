@@ -1,3 +1,3 @@
 ## beta
 
-general-purpose ng2select directive module
+general-purpose angular2 select/multiselect directive module
