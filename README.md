@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ng2select/bootstrap.svg?branch=master)](https://travis-ci.org/ng2select/bootstrap)
+
 ## beta
 
 general-purpose angular2 select/multiselect directive module
