@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
-import { Observable } from 'rxjs/rx';
+import { Observable } from 'rxjs/Rx';
 import * as hljs from 'highlight.js';
 import { ExampleService, IUser } from '../../shared';
 import { ExampleLayoutComponent } from '../layout';
@@ -22,7 +22,7 @@ export class HttpComponent implements OnInit, AfterViewInit {
   public filteredUsers = this.users;
   public ngModel;
 
-  constructor(private exampleSvc: ExampleService) {  //private elemRef: ElementRef, 
+  constructor(private exampleSvc: ExampleService) {  //private elemRef: ElementRef,
     //this.elem = this.elemRef.nativeElement;
   }
 

@@ -1,26 +1,26 @@
-import { 
+import {
   AfterContentInit,
-  Component, 
-  Directive, 
-  ElementRef, 
-  EventEmitter, 
-  forwardRef, 
-  Host, 
-  HostBinding, 
-  Input, 
-  Output, 
-  OnInit, 
-  OnChanges, 
-  OnDestroy, 
+  Component,
+  Directive,
+  ElementRef,
+  EventEmitter,
+  forwardRef,
+  Host,
+  HostBinding,
+  Input,
+  Output,
+  OnInit,
+  OnChanges,
+  OnDestroy,
   Provider,
   Query,
-  QueryList, 
-  SimpleChange, 
-  ViewChild, 
-  AfterViewInit 
+  QueryList,
+  SimpleChange,
+  ViewChild,
+  AfterViewInit
 } from '@angular/core';
 
-import {ControlValueAccessor, NG_VALUE_ACCESSOR, CORE_DIRECTIVES} from "@angular/common"; 
+import {ControlValueAccessor, NG_VALUE_ACCESSOR, CORE_DIRECTIVES} from "@angular/common";
 import * as $ from 'jquery';
 import 'bootstrap';
 import 'selectpicker';
@@ -71,15 +71,15 @@ export class Ng2Select implements OnInit, AfterContentInit, AfterViewInit, Contr
   private elem;
   //private ngModel;
   private selectPicker;
-  
+
   private options: QueryList<Ng2Option>;
 
-  constructor(@Query(Ng2Option) options:QueryList<Ng2Option>, private elemRef: ElementRef) {
+  constructor(@Query(Ng2Option) options: QueryList<Ng2Option>, private elemRef: ElementRef) {
     this.options = options;
     this.elem = this.elemRef.nativeElement;
-    
+
     console.log('select directive <option></option>s', this.options);
-    
+
     console.log('select directive elem', this.elem);
   }
 
@@ -87,7 +87,7 @@ export class Ng2Select implements OnInit, AfterContentInit, AfterViewInit, Contr
     this.getSetNgModel(this.getNgModel());
     console.log('ngModel', this.ngModel);
   }
-  
+
   ngAfterContentInit(){
     this.options.changes
       .do(change => $(this.elem).selectpicker('refresh'))
@@ -112,7 +112,7 @@ export class Ng2Select implements OnInit, AfterContentInit, AfterViewInit, Contr
     $(this.elem).selectpicker(config);
     return $(this.elem).data('selectpicker');
   }
-  
+
   isDefined(value) {
     return typeof value !== 'undefined';
   }
@@ -186,4 +186,3 @@ export class Ng2Select implements OnInit, AfterContentInit, AfterViewInit, Contr
     $(this.elem).selectpicker('destroy');
   }
 }
-
