@@ -12,9 +12,14 @@ general-purpose angular2 select/multiselect directive module
 
 http://ng2select.github.io/bootstrap/
 
+_powered by:_ 
+https://silviomoreto.github.io/bootstrap-select/
+
+### optional config strongly-typed interface
+
 ```TypeScript
 
-export interface ISelectConfig {
+export interface INg2SelectConfig {
   actionsBox?: boolean;
   style?: string;
   size?: number;
@@ -30,12 +35,28 @@ export interface ISelectConfig {
 
 ```
 
+### multiselect example (configured primarily in the view)
+
 ```HTML
 
-<select [(ngModel)]="selectedOptionId" multiple>
+<select [(ngModel)]="selectedOptionIds" multiple>
   <option *ngFor="let option of selectOptions" [value]="option.id">
     {{ option.name }}
   </option>
 </select>
 
 ```
+
+### singleselect example (similar ui/ux w/practically identical configuration!!)
+
+```HTML
+
+<select [(ngModel)]="selectedOptionId">
+  <option *ngFor="let option of selectOptions" [value]="option.id">
+    {{ option.name }}
+  </option>
+</select>
+
+```
+
+https://angular.io

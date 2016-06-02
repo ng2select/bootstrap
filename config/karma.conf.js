@@ -4,7 +4,8 @@ module.exports = function (config) {
     frameworks: ['jasmine'],
     plugins: [
       require('karma-jasmine'),
-      require('karma-chrome-launcher')
+      require('karma-chrome-launcher'),
+      require('karma-phantomjs-launcher')
     ],
     customLaunchers: {
       // chrome setup for travis CI using chromium
