@@ -1,21 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import 'highlight.js';
+import { AfterViewInit, Component, OnInit, ViewEncapsulation } from '@angular/core';
+import * as hljs from 'highlight.js';
 
 @Component({
   moduleId: module.id,
   selector: 'app-example-layout',
   templateUrl: 'layout.component.html',
   styleUrls: [
-    'layout.component.css' 
-    ]
+    'layout.component.css'
+  ]
+  //encapsulation: ViewEncapsulation.None
 })
-export class ExampleLayoutComponent implements OnInit {
+export class ExampleLayoutComponent implements OnInit, AfterViewInit {
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
-    //hljs.initHighlightingOnLoad();
-    //hljs.initHighlightingOnLoad();
+
+  }
+
+  ngAfterViewInit() {
+    //hljs.initHighlighting();
   }
 
 }

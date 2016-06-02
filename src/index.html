@@ -1,14 +1,15 @@
 <!doctype html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <title>Select</title>
-  <base href="/">
-  {{content-for 'head'}}
+  <base href="/"> {{content-for 'head'}}
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="vendor/bootstrap-select/dist/css/bootstrap-select.css" />
-  <link rel="stylesheet" href="vendor/highlight.js/styles/github.css" />
+  <link rel="stylesheet" href="vendor/highlight.js/styles/zenburn.css" />
+  <script src="http://softwaremaniacs.org/media/soft/highlight/highlight.pack.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Service worker support is disabled by default.
@@ -23,8 +24,17 @@
   </script>
   -->
 </head>
+
 <body>
   <select-app>Loading...</select-app>
+  
+  <!--<pre>
+     <code> 
+       int main() {
+         printf("Hello, world!\n");
+       }
+     </code>
+  </pre>-->
 
   <script src="vendor/es6-shim/es6-shim.js"></script>
   <script src="vendor/reflect-metadata/Reflect.js"></script>
@@ -35,6 +45,12 @@
     System.import('system-config.js').then(function () {
       System.import('main');
     }).catch(console.error.bind(console));
+
+    setTimeout(function(){
+     hljs.tabReplace = '    ';
+     hljs.initHighlighting();
+    }, 2500);
   </script>
 </body>
+
 </html>

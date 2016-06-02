@@ -1,13 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ExampleLayoutComponent } from '../layout';
-import { Ng2Select } from '../../ng2select';
+import { Ng2Select, Ng2Option } from '../../ng2select';
 
 @Component({
   moduleId: module.id,
   selector: 'app-example-ui-ux',
   templateUrl: 'ui-ux.component.html',
   styleUrls: ['ui-ux.component.css'],
-  directives: [ExampleLayoutComponent, Ng2Select]
+  directives: [ExampleLayoutComponent, Ng2Select, Ng2Option]
 })
 export class UiUxComponent implements OnInit, OnDestroy {
   selectOptions: any[];

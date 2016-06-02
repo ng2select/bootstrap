@@ -2,7 +2,7 @@
   <ng2-title>UI/UX</ng2-title>
   <ng2-example>
 
-    <select class="show-tick" [(ngModel)]="ngModel['basicMultiselect']" multiple data-actions-box="true" data-style="">
+    <select class="show-tick" [(ngModel)]="ngModel['basicMultiselect']" multiple data-actions-box="true" style="background-color: white; border: 1px solid grey;">
       <option *ngFor="let option of selectOptions" [value]="option.id"> <!-- data-content="<span class='label label-success'>Relish</span>" -->
         {{ option.name }}
       </option>
@@ -44,13 +44,9 @@
         {{ option.name }}
       </option>
     </select>
-    
-    <pre>
-
-    </pre>
 
   </ng2-example>
   <ng2-code-highlight>
-    <pre>{{ngModel | json}}</pre>
+    {{ngModel | json}}
   </ng2-code-highlight>
 </app-example-layout>

@@ -1,9 +1,31 @@
-import { Component, Directive, ElementRef, EventEmitter, forwardRef, Host, HostBinding, Input, Output, OnInit, OnChanges, OnDestroy, Provider, SimpleChange, ViewChild, AfterViewInit } from '@angular/core';
+import { 
+  AfterContentInit,
+  Component, 
+  Directive, 
+  ElementRef, 
+  EventEmitter, 
+  forwardRef, 
+  Host, 
+  HostBinding, 
+  Input, 
+  Output, 
+  OnInit, 
+  OnChanges, 
+  OnDestroy, 
+  Provider,
+  Query,
+  QueryList, 
+  SimpleChange, 
+  ViewChild, 
+  AfterViewInit 
+} from '@angular/core';
+
 import {ControlValueAccessor, NG_VALUE_ACCESSOR, CORE_DIRECTIVES} from "@angular/common"; 
 import * as $ from 'jquery';
 import 'bootstrap';
 import 'selectpicker';
 import { INg2SelectConfig, Ng2SelectConfig } from './';
+import { Ng2Option } from './ng2option.directive';
 
 const noop = () => { };
 
@@ -20,7 +42,7 @@ const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR = new Provider(
   },
   providers: [CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR]
 })
-export class Ng2Select implements OnInit, AfterViewInit, ControlValueAccessor, OnChanges, OnDestroy {
+export class Ng2Select implements OnInit, AfterContentInit, AfterViewInit, ControlValueAccessor, OnChanges, OnDestroy {
   public model;
 
   @Input() config: INg2SelectConfig;
@@ -36,12 +58,12 @@ export class Ng2Select implements OnInit, AfterViewInit, ControlValueAccessor, O
   private _onChangeCallback: (_: any) => void = noop;
 
   //get accessor
-  get value(): any { return this._value; };
+  get value(): any { return this.ngModel; };
 
   //set accessor including call the onchange callback
   set value(v: any) {
-    if (v !== this._value) {
-      this._value = v;
+    if (v !== this.ngModel) {
+      this.ngModel = v;
       this._onChangeCallback(v);
     }
   }
@@ -49,15 +71,28 @@ export class Ng2Select implements OnInit, AfterViewInit, ControlValueAccessor, O
   private elem;
   //private ngModel;
   private selectPicker;
+  
+  private options: QueryList<Ng2Option>;
 
-  constructor(private elemRef: ElementRef) {
+  constructor(@Query(Ng2Option) options:QueryList<Ng2Option>, private elemRef: ElementRef) {
+    this.options = options;
     this.elem = this.elemRef.nativeElement;
+    
+    console.log('select directive <option></option>s', this.options);
+    
     console.log('select directive elem', this.elem);
   }
 
   ngOnInit() {
     this.getSetNgModel(this.getNgModel());
     console.log('ngModel', this.ngModel);
+  }
+  
+  ngAfterContentInit(){
+    this.options.changes
+      .do(change => $(this.elem).selectpicker('refresh'))
+      .do(change => console.warn('change', change))
+      .subscribe();
   }
 
   ngAfterViewInit() {
@@ -66,8 +101,11 @@ export class Ng2Select implements OnInit, AfterViewInit, ControlValueAccessor, O
     console.log('this.selectPicker', this.selectPicker);
   }
 
-  ngOnChanges(changes: { [key: string]: SimpleChange }) {
-    console.log('select ngOnChanges()', changes);
+  ngOnChanges(change: { [key: string]: SimpleChange }) {
+    console.log('select ngOnChanges()', change);
+    // let keys: string[] = Object.keys(change);
+    // if(keys.indexOf('ngModel') > -1)
+    //   this.getSetNgModel(change['ngModel'].currentValue)
   }
 
   initSelectPicker(config: INg2SelectConfig) {
@@ -131,7 +169,7 @@ export class Ng2Select implements OnInit, AfterViewInit, ControlValueAccessor, O
 
   //From ControlValueAccessor interface
   writeValue(value: any) {
-    this._value = value;
+    this.value = value;
   }
 
   //From ControlValueAccessor interface
