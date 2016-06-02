@@ -12,6 +12,9 @@ general-purpose angular2 select/multiselect directive module
 
 http://ng2select.github.io/bootstrap/
 
+_powered by:_ 
+https://silviomoreto.github.io/bootstrap-select/
+
 ### optional config strongly-typed interface
 
 ```TypeScript
@@ -55,3 +58,5 @@ export interface INg2SelectConfig {
 </select>
 
 ```
+
+https://angular.io
