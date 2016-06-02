@@ -1,6 +1,7 @@
 export class Ng2SelectConfig implements INg2SelectConfig {
   public size: number = 4;
   public selectedTextFormat: string = 'count > 2';
+  public noneSelectedText: string = '<-- select -->';
 }
 
 export interface INg2SelectConfig {
