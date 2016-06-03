@@ -5,10 +5,10 @@
             "name": "Launch",
             "type": "node",
             "request": "launch",
-            "program": "/usr/local/lib/node_modules/angular-cli/bin/ng",
+            "program": "/usr/local/lib/node_modules/npm/bin/npm-cli.js",
             "stopOnEntry": false,
             "args": [
-                "serve"
+                "start"
             ],
             "cwd": "${workspaceRoot}",
             "preLaunchTask": null,

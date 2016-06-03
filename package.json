@@ -4,7 +4,8 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
-    "start": "ng server",
+    "start": "ng serve & npm run open",
+    "open": "node ./config/open",
     "postinstall": "typings install",
     "lint": "tslint \"src/**/*.ts\"",
     "format": "clang-format -i -style=file --glob=src/**/*.ts",
@@ -45,6 +46,7 @@
     "karma-jasmine": "^0.3.8",
     "karma-phantomjs-launcher": "^1.0.0",
     "npm": "3.9.0",
+    "open": "0.0.5",
     "phantomjs-prebuilt": "^2.1.7",
     "protractor": "^3.3.0",
     "ts-node": "^0.5.5",
