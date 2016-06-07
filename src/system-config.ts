@@ -40,6 +40,8 @@ const barrels: string[] = [
   'app/example/http',
   'app/example/ui-ux',
   'app/example/layout',
+  'app/example/playground',
+  'app/ix-select',
   /** @cli-barrel */
 ];
 
