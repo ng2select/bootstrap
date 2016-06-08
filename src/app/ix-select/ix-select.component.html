@@ -1,1 +1,17 @@
-     <!--<input (focus)="open=true;" (blur)="open=false;" />-->
+<div class="btn-group bootstrap-select show-tick" [ngClass]="{'open': open, 'dropup': isDropup()}">
+    <!-- <ng-content select="ix-label"></ng-content> --> 
+    <button type="button" class="btn dropdown-toggle btn-success" (click)="toggle($event)" [innerHTML]="label.elem.innerHTML"></button>
+    <div class="dropdown-menu open">
+        <div class="bs-actionsbox">
+            <div class="btn-group btn-group-sm btn-block">
+                <button type="button" class="actions-btn bs-select-all btn btn-default">Select All</button>
+                <button type="button" class="actions-btn bs-deselect-all btn btn-default">Deselect All</button>
+            </div>
+        </div>
+        <ul class="dropdown-menu inner">
+            <!-- [hidden]="!open" -->
+            <li *ngFor="let option of options; let i = index" (click)="selectOption(option)" [class.active]="option.active" [innerHTML]="option.elem.innerHTML">
+            </li>
+        </ul>
+    </div>
+</div>

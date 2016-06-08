@@ -12,6 +12,7 @@ import {
   AfterContentInit,
   AfterViewInit,
   ContentChild,
+  ViewChild,
   ViewChildren,
   ElementRef,
   RenderComponentType,
@@ -38,37 +39,17 @@ const IX_SELECT_CONTROL_VALUE_ACCESSOR = new Provider(
   });
 
 @Component({
-  moduleId: module.id,
+  moduleId: module.id, 
   selector: 'ix-select-builder',
-  template: `
-    <div class="btn-group bootstrap-select show-tick" [ngClass]="{open: open}" (blur)="toggle($event)">
-    <div (click)="toggle($event)"> <!-- [innerHTML]="label.elem.innerHTML" -->
-      <ng-content select="ix-label"></ng-content> 
-    </div>
-    <div class="dropdown-menu open">
-    <div class="bs-actionsbox">
-      <div class="btn-group btn-group-sm btn-block">
-        <button type="button" class="actions-btn bs-select-all btn btn-default">Select All</button>
-        <button type="button" class="actions-btn bs-deselect-all btn btn-default">Deselect All</button>
-      </div>
-    </div>
-    <ul class="dropdown-menu inner"> <!-- [hidden]="!open" -->
-      <li *ngFor="let option of options; let i = index" 
-        (click)="selectOption(option)" 
-        [class.active]="option.active" 
-        [innerHTML]="option.elem.innerHTML">
-      </li>
-    </ul>
-    </div>
-    </div>
-  `,
+  templateUrl: 'ix-select.component.html',
   host: { '(window:click)': 'onWindowClick($event)' },
   directives: [IxOptionComponent, IxLabelComponent],
-  providers: [IX_SELECT_CONTROL_VALUE_ACCESSOR]
+  providers: [IX_SELECT_CONTROL_VALUE_ACCESSOR],
+  //styleUrls: ['ix-select.component.css']
 })
 export class IxSelectComponent implements AfterContentInit, AfterViewInit, ControlValueAccessor {
 
-  @ContentChild(IxLabelComponent) label;
+  @ContentChild(IxLabelComponent) label: IxLabelComponent;
   @ContentChildren(IxOptionComponent) options: QueryList<IxOptionComponent>;
   @Output() title = new EventEmitter();
   @Input() ngModel: any;
@@ -102,6 +83,8 @@ export class IxSelectComponent implements AfterContentInit, AfterViewInit, Contr
 
   ngAfterViewInit() {
     this.title.emit('<-- select -->');
+        console.log('this.label', this.label);
+    //this.renderer.attachViewAfter()
   }
 
   // contentChildren are set
@@ -120,6 +103,10 @@ export class IxSelectComponent implements AfterContentInit, AfterViewInit, Contr
 
   isBlur($event) {
     return !this.elem.contains($event.target);
+  }
+  
+  isDropup() {
+    return false;
   }
 
   onWindowClick($event) {
@@ -163,4 +150,4 @@ export class IxSelectComponent implements AfterContentInit, AfterViewInit, Contr
 }
 
 
-export const IX_DIRECTIVES = [IxSelectComponent, IxOptionComponent];
+export const IX_DIRECTIVES = [IxSelectComponent, IxLabelComponent, IxOptionComponent];

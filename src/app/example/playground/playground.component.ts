@@ -13,13 +13,11 @@ import {
   ContentChild,
   ViewChildren
 } from '@angular/core';
-
 import {AsyncPipe} from '@angular/common';
-
 import { Observable } from 'rxjs/Rx';
 
-import {ExampleService, IUser} from '../../shared';
-
+import { ExampleLayoutComponent } from '../layout';
+import { ExampleService, IUser } from '../../shared';
 import { IX_DIRECTIVES } from '../../ix-select';
 
 @Component({
@@ -27,7 +25,7 @@ import { IX_DIRECTIVES } from '../../ix-select';
   selector: 'app-example-playground',
   templateUrl: 'playground.component.html', 
   styleUrls: ['playground.component.css'],
-  directives: [IX_DIRECTIVES],
+  directives: [IX_DIRECTIVES, ExampleLayoutComponent],
   pipes: [AsyncPipe]
 })
 export class PlaygroundComponent implements OnInit {

@@ -17,7 +17,7 @@ import {
 
 @Component({
   moduleId: module.id,
-  selector: 'ix-option',
+  selector: 'ix-label', 
   //styles: [],
   template: `
     <ng-content></ng-content>

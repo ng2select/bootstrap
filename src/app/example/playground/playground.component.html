@@ -1,11 +1,17 @@
-    <ix-select-builder (title)="setTitle($event)" [(ngModel)]="selectedOption">
-      <ix-label>
-        <button type="button" class="btn dropdown-toggle btn-success">
-          <span class="filter-option pull-left" [innerHTML]="title"></span>&nbsp;<span class="bs-caret"><span class="caret"></span></span>
-        </button>
-      </ix-label>
-      <ix-option *ngFor="let user of users | async" [value]="user.id">
-          <img [src]="user.gravatarSrc" height="20" width="20" />
-          <span>{{user.name}}</span>
-      </ix-option>
-    </ix-select-builder> 
+<app-example-layout>
+    <ng2-title>Playground</ng2-title>
+    <ng2-example>
+        <ix-select-builder (title)="setTitle($event)" [(ngModel)]="selectedOption">
+            <ix-label>
+                <span class="filter-option pull-left" [innerHTML]="title"></span>&nbsp;<span class="bs-caret"><span class="caret"></span></span>
+            </ix-label>
+            <ix-option *ngFor="let user of users | async" [value]="user.id">
+                <img [src]="user.gravatarSrc" height="20" width="20" />
+                <span>{{user.name}}</span>
+            </ix-option>
+        </ix-select-builder>
+    </ng2-example>
+    <ng2-code-highlight>
+        *ngFor="let user of users | async"
+    </ng2-code-highlight>
+</app-example-layout>
