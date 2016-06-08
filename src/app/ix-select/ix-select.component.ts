@@ -18,9 +18,11 @@ import {
   Renderer
 } from '@angular/core';
 
+import {DOCUMENT} from '@angular/platform-browser';
+
 import {
-  ControlValueAccessor, 
-  NG_VALUE_ACCESSOR, 
+  ControlValueAccessor,
+  NG_VALUE_ACCESSOR,
   CORE_DIRECTIVES
 } from "@angular/common";
 
@@ -37,7 +39,7 @@ const IX_SELECT_CONTROL_VALUE_ACCESSOR = new Provider(
 
 @Component({
   moduleId: module.id,
-  selector: 'ix-select',
+  selector: 'ix-select-builder',
   template: `
     <div class="btn-group bootstrap-select show-tick" [ngClass]="{open: open}" (blur)="toggle($event)">
     <div (click)="toggle($event)"> <!-- [innerHTML]="label.elem.innerHTML" -->
@@ -60,6 +62,7 @@ const IX_SELECT_CONTROL_VALUE_ACCESSOR = new Provider(
     </div>
     </div>
   `,
+  host: { '(window:click)': 'onWindowClick($event)' },
   directives: [IxOptionComponent, IxLabelComponent],
   providers: [IX_SELECT_CONTROL_VALUE_ACCESSOR]
 })
@@ -71,10 +74,12 @@ export class IxSelectComponent implements AfterContentInit, AfterViewInit, Contr
   @Input() ngModel: any;
   @Output() ngModelChange: EventEmitter<any> = new EventEmitter();
 
-  //The internal data model
+  private elem = null;
+  private open: boolean = false;
+  private renderer: Renderer;
   private _value: any = '';
 
-  //Placeholders for the callbacks
+  //Placeholders for the ngModel callbacks
   private _onTouchedCallback: (_: any) => void = noop;
 
   private _onChangeCallback: (_: any) => void = noop;
@@ -82,63 +87,61 @@ export class IxSelectComponent implements AfterContentInit, AfterViewInit, Contr
   //get accessor
   get value(): any { return this.ngModel; };
 
-  //set accessor including call the onchange callback
+  //set accessor including call the ngModel onchange callback
   set value(v: any) {
     if (v !== this.ngModel) {
       this.ngModel = v;
       this._onChangeCallback(v);
     }
   }
-  
-  private elem = null;
-  private open = false;
-  private renderer: Renderer;
 
-  constructor(renderer: Renderer, elemRef: ElementRef){
+  constructor(renderer: Renderer, elemRef: ElementRef) {
     this.elem = elemRef.nativeElement;
     this.renderer = renderer;
-
-    //this.label.first.display = 'test';
-    console.log(arguments);
   }
-  //constructor(@Query(Tab) private tabs: QueryList<Tab>){}
-  
-  ngAfterViewInit(){
+
+  ngAfterViewInit() {
     this.title.emit('<-- select -->');
   }
 
   // contentChildren are set
   ngAfterContentInit() {
     console.log('this.options', this.options);
-    
+
     //this.options.changes.debounceTime(200).do(o => this.setTitle(o)).subscribe();
 
     this.options.forEach(option => console.log('option', option));
-    
+
     let initialSelectedOptions = this.options.filter(o => o.value === this.value);
-    
-    if(initialSelectedOptions.length)
+
+    if (initialSelectedOptions.length)
       this.selectOption(initialSelectedOptions[0]);
   }
 
+  isBlur($event) {
+    return !this.elem.contains($event.target);
+  }
+
+  onWindowClick($event) {
+    if (this.isBlur($event))
+      this.open = false;
+  }ß
+
   selectOption(option: IxOptionComponent) {
-    // deactivate all tabs
+    // deactivate all options
     this.options.toArray().forEach(option => option.active = false);
 
-    console.log('select tab', [option]);
-
-    // activate the tab the user has clicked on.
+    // activate the option the user has clicked on
     option.active = true;
-    
-    this.setTitle(option);
 
-    //this.options.first.onClick();
+    // set title based on option selected
+    this.setTitle(option);
   }
-  
-  setTitle(option: IxOptionComponent){
+
+  setTitle(option: IxOptionComponent) {
     this.title.emit(option.elem.innerHTML);
   }
-  
+
   //From ControlValueAccessor interface
   writeValue(value: any) {
     this.value = value;
@@ -153,8 +156,8 @@ export class IxSelectComponent implements AfterContentInit, AfterViewInit, Contr
   registerOnTouched(fn: any) {
     this._onTouchedCallback = fn;
   }
-  
-  toggle($event){
+
+  toggle($event) {
     this.open = !this.open;
   }
 }

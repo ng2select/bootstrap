@@ -1,12 +1,11 @@
-    <ix-select (title)="setTitle($event)" [(ngModel)]="selectedOption">
+    <ix-select-builder (title)="setTitle($event)" [(ngModel)]="selectedOption">
       <ix-label>
         <button type="button" class="btn dropdown-toggle btn-success">
           <span class="filter-option pull-left" [innerHTML]="title"></span>&nbsp;<span class="bs-caret"><span class="caret"></span></span>
         </button>
       </ix-label>
-      <ix-option [value]=""></ix-option>
       <ix-option *ngFor="let user of users | async" [value]="user.id">
           <img [src]="user.gravatarSrc" height="20" width="20" />
           <span>{{user.name}}</span>
       </ix-option>
-    </ix-select> 
+    </ix-select-builder> 
