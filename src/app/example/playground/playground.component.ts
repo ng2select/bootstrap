@@ -18,7 +18,7 @@ import { Observable } from 'rxjs/Rx';
 
 import { ExampleLayoutComponent } from '../layout';
 import { ExampleService, IUser } from '../../shared';
-import { IX_DIRECTIVES } from '../../ix-select';
+import { IX_DIRECTIVES, IxOptionComponent } from '../../ix-select';
 
 @Component({
   moduleId: module.id,
@@ -30,8 +30,8 @@ import { IX_DIRECTIVES } from '../../ix-select';
 })
 export class PlaygroundComponent implements OnInit {
   
-  public selectedOption: number = 1;
-  public title;
+  public selectedOption: IxOptionComponent;
+  public title: string;
   public users: Observable<IUser[]>;
 
   constructor(public exampleSvc: ExampleService) { }
@@ -40,8 +40,11 @@ export class PlaygroundComponent implements OnInit {
     this.users = this.exampleSvc.getItems();
   }
   
-  setTitle($event){
-    this.title = $event;
+  setTitle(option: IxOptionComponent){
+    if(!option || !option.elem)
+    return;
+    this.title = option.elem.title;
+    console.log('this.selectedOption', this.selectedOption);
   }
 
 }

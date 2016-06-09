@@ -1,6 +1,8 @@
 <div class="btn-group bootstrap-select show-tick" [ngClass]="{'open': open, 'dropup': isDropup()}">
-    <!-- <ng-content select="ix-label"></ng-content> --> 
-    <button type="button" class="btn dropdown-toggle btn-success" (click)="toggle($event)" [innerHTML]="label.elem.innerHTML"></button>
+    <!-- <ng-content select="ix-display"></ng-content> --> 
+    <button type="button" (click)="toggle($event)" [innerHTML]="display.elem.innerHTML">
+        <!-- <ix-display /> + <ix-button /> injected here -->
+    </button>
     <div class="dropdown-menu open">
         <div class="bs-actionsbox">
             <div class="btn-group btn-group-sm btn-block">

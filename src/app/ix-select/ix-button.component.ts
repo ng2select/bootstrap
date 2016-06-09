@@ -17,17 +17,16 @@ import {
 
 @Component({
   moduleId: module.id,
-  selector: 'ix-label', 
-  //styles: [],
+  selector: 'ix-button', 
   template: `
     <ng-content></ng-content>
-  `
+  `,
+  directives:[]
 })
-export class IxLabelComponent implements AfterViewInit {  
-  display = null;
+export class IxButtonComponent implements AfterViewInit {  
   elem = null;
   
-  constructor(elementRef: ElementRef){ //private ixSelect: IxSelectComponent
+  constructor(elementRef: ElementRef){ 
     this.elem = elementRef.nativeElement;
   }
   
@@ -36,6 +35,6 @@ export class IxLabelComponent implements AfterViewInit {
   }
   
   ngAfterViewInit(){
-    //this.innerHTML = this.elem.innerHTML;
+
   }
 }

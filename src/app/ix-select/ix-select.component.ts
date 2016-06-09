@@ -28,7 +28,8 @@ import {
 } from "@angular/common";
 
 import { IxOptionComponent } from './ix-option.component';
-import { IxLabelComponent } from './ix-label.component';
+import { IxButtonComponent } from './ix-button.component';
+import { IxDisplayComponent } from './ix-display.component';
 
 const noop = () => { };
 
@@ -43,13 +44,13 @@ const IX_SELECT_CONTROL_VALUE_ACCESSOR = new Provider(
   selector: 'ix-select-builder',
   templateUrl: 'ix-select.component.html',
   host: { '(window:click)': 'onWindowClick($event)' },
-  directives: [IxOptionComponent, IxLabelComponent],
+  directives: [IxOptionComponent, IxButtonComponent, IxDisplayComponent],
   providers: [IX_SELECT_CONTROL_VALUE_ACCESSOR],
   //styleUrls: ['ix-select.component.css']
 })
 export class IxSelectComponent implements AfterContentInit, AfterViewInit, ControlValueAccessor {
-
-  @ContentChild(IxLabelComponent) label: IxLabelComponent;
+  @ContentChild(IxButtonComponent) btn: IxButtonComponent;
+  @ContentChild(IxDisplayComponent) display: IxDisplayComponent;
   @ContentChildren(IxOptionComponent) options: QueryList<IxOptionComponent>;
   @Output() title = new EventEmitter();
   @Input() ngModel: any;
@@ -83,7 +84,7 @@ export class IxSelectComponent implements AfterContentInit, AfterViewInit, Contr
 
   ngAfterViewInit() {
     this.title.emit('<-- select -->');
-        console.log('this.label', this.label);
+        console.log('this.btn', this.btn);
     //this.renderer.attachViewAfter()
   }
 
@@ -112,7 +113,7 @@ export class IxSelectComponent implements AfterContentInit, AfterViewInit, Contr
   onWindowClick($event) {
     if (this.isBlur($event))
       this.open = false;
-  }ß
+  }
 
   selectOption(option: IxOptionComponent) {
     // deactivate all options
@@ -121,12 +122,14 @@ export class IxSelectComponent implements AfterContentInit, AfterViewInit, Contr
     // activate the option the user has clicked on
     option.active = true;
 
+    this.value = option;
+
     // set title based on option selected
     this.setTitle(option);
   }
 
   setTitle(option: IxOptionComponent) {
-    this.title.emit(option.elem.innerHTML);
+    this.title.emit(option);
   }
 
   //From ControlValueAccessor interface
@@ -149,5 +152,4 @@ export class IxSelectComponent implements AfterContentInit, AfterViewInit, Contr
   }
 }
 
-
-export const IX_DIRECTIVES = [IxSelectComponent, IxLabelComponent, IxOptionComponent];
+export const IX_DIRECTIVES = [IxSelectComponent, IxButtonComponent, IxOptionComponent, IxDisplayComponent];
