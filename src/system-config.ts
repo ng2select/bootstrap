@@ -42,6 +42,15 @@ const barrels: string[] = [
   'app/example/layout',
   'app/example/playground',
   'app/ix-select',
+  'app/ix-select/shared',
+
+  // Module specific barrels
+  'core',
+  'core/shared',
+  'bootstrap',
+  'combo',
+  'jquery'
+
   /** @cli-barrel */
 ];
 

@@ -7,28 +7,27 @@ import {
   inject,
 } from '@angular/core/testing';
 import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
-import { Component } from '@angular/core';
+import { Component, Renderer } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { ExampleService } from '../../shared';
-import { PlaygroundComponent } from './playground.component';
+import { IxBuilderComponent } from './builder.component';
 
-describe('Component: Playground', () => {
+describe('Component: IxSelect', () => {
   let builder: TestComponentBuilder;
 
-  beforeEachProviders(() => [PlaygroundComponent, ExampleService]);
+  beforeEachProviders(() => [IxBuilderComponent, Renderer]);
   beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
     builder = tcb;
   }));
 
-  it('should inject the component', inject([PlaygroundComponent],
-      (component: PlaygroundComponent) => {
+  it('should inject the component', inject([IxBuilderComponent],
+      (component: IxBuilderComponent) => {
     expect(component).toBeTruthy();
   }));
 
   it('should create the component', inject([], () => {
-    return builder.createAsync(PlaygroundComponentTestController)
+    return builder.createAsync(IxBuilderComponentTestController)
       .then((fixture: ComponentFixture<any>) => {
-        let query = fixture.debugElement.query(By.directive(PlaygroundComponent));
+        let query = fixture.debugElement.query(By.directive(IxBuilderComponent));
         expect(query).toBeTruthy();
         expect(query.componentInstance).toBeTruthy();
       });
@@ -38,10 +37,10 @@ describe('Component: Playground', () => {
 @Component({
   selector: 'test',
   template: `
-    <app-playground></app-playground>
+    <app-ix-select></app-ix-select>
   `,
-  directives: [PlaygroundComponent]
+  directives: [IxBuilderComponent]
 })
-class PlaygroundComponentTestController {
+class IxBuilderComponentTestController {
 }
 

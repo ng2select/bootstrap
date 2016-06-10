@@ -15,27 +15,16 @@ import {
   ViewChildren
 } from '@angular/core';
 
-@Component({
-  moduleId: module.id,
-  selector: 'ix-button', 
-  template: `
-    <span (click)="onclick($event)">
-      <ng-content></ng-content>
-    </span>
-  `,
-  directives:[]
+@Directive({
+  selector: 'input'
 })
-export class IxButtonComponent implements AfterViewInit {  
-  @Output() toggle = new EventEmitter();
+export class IxInput implements AfterViewInit {  
   elem = null;
+  @Input() value = null;
+  ngModel = null;
   
   constructor(elementRef: ElementRef){ 
     this.elem = elementRef.nativeElement;
-  }
-  
-  onclick($event){
-    this.toggle.emit(true);
-    return false;
   }
   
   ngAfterViewInit(){

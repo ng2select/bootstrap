@@ -6,7 +6,7 @@ import { ExceptionService } from './exception.service'
 @Injectable()
 export class ExampleService {
 
-  private endpoint: string = `api/users.json`;
+  private endpoint: string = `app/api/users.json`;
 
   constructor(private http: Http, private exceptionSvc: ExceptionService) { }
 

@@ -16,23 +16,21 @@ import {
 import { COMMON_DIRECTIVES, COMMON_PIPES } from '@angular/common';
 import { Observable } from 'rxjs/Rx';
 
-import { ExampleLayoutComponent } from '../layout';
-import { ExampleService, IUser } from '../../shared';
-import { IX_DIRECTIVES, IxOptionComponent } from '../../ix-select';
+import { IX_DIRECTIVES, IxOptionComponent } from '../core';
 
 @Component({
   moduleId: module.id,
-  selector: 'app-example-playground',
-  templateUrl: 'playground.component.html', 
-  styleUrls: ['playground.component.css'],
-  directives: [COMMON_DIRECTIVES, IX_DIRECTIVES, ExampleLayoutComponent],
+  selector: 'ix-combo-select',
+  templateUrl: 'combo.component.html', 
+  styleUrls: ['combo.component.css'],
+  directives: [COMMON_DIRECTIVES, IX_DIRECTIVES],
   pipes: [COMMON_PIPES]
 })
-export class PlaygroundComponent implements OnInit {
+export class ComboSelectComponent implements OnInit {
   public open: boolean = false;
   public selectedOption: IxOptionComponent;
   public inputTitle: string;
-  public options: Observable<IUser[]>;
+  //public options: Observable<IUser[]>;
 
   private _title: string;
 
@@ -47,11 +45,10 @@ export class PlaygroundComponent implements OnInit {
     }
   }
 
-  constructor(public exampleSvc: ExampleService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.options = this.exampleSvc.getItems();
-    //this.options.subscribe();
+
   }
 
   comboInputChanged(newVal){
@@ -59,8 +56,7 @@ export class PlaygroundComponent implements OnInit {
   }
 
   blur($event){
-    console.log('blur => this.options', this.options);
-    //this.options.flatMapTo((users, user, outer, inner) => user, null).toArray();
+    //onsole.log('blur => this.options', this.options);
   }
   
   setTitle(option: IxOptionComponent){

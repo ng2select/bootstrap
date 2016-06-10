@@ -9,26 +9,25 @@ import {
 import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { ExampleService } from '../../shared';
-import { PlaygroundComponent } from './playground.component';
+import { BootstrapSelectComponent } from './bootstrap.component';
 
-describe('Component: Playground', () => {
+describe('Component: BootstrapSelect', () => {
   let builder: TestComponentBuilder;
 
-  beforeEachProviders(() => [PlaygroundComponent, ExampleService]);
+  beforeEachProviders(() => [BootstrapSelectComponent]);
   beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
     builder = tcb;
   }));
 
-  it('should inject the component', inject([PlaygroundComponent],
-      (component: PlaygroundComponent) => {
+  it('should inject the component', inject([BootstrapSelectComponent],
+      (component: BootstrapSelectComponent) => {
     expect(component).toBeTruthy();
   }));
 
   it('should create the component', inject([], () => {
-    return builder.createAsync(PlaygroundComponentTestController)
+    return builder.createAsync(BootstrapSelectComponentTestController)
       .then((fixture: ComponentFixture<any>) => {
-        let query = fixture.debugElement.query(By.directive(PlaygroundComponent));
+        let query = fixture.debugElement.query(By.directive(BootstrapSelectComponent));
         expect(query).toBeTruthy();
         expect(query.componentInstance).toBeTruthy();
       });
@@ -38,10 +37,10 @@ describe('Component: Playground', () => {
 @Component({
   selector: 'test',
   template: `
-    <app-playground></app-playground>
+    <ix-bootstrap-select></ix-bootstrap-select>
   `,
-  directives: [PlaygroundComponent]
+  directives: [BootstrapSelectComponent]
 })
-class PlaygroundComponentTestController {
+class BootstrapSelectComponentTestController {
 }
 

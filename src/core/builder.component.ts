@@ -28,29 +28,29 @@ import {
 } from "@angular/common";
 
 import { IX_DOM_CONSTANTS } from './shared';
-import { IxOptionComponent } from './ix-option.component';
-import { IxButtonComponent } from './ix-button.component';
-import { IxDisplayComponent } from './ix-display.component';
-import { IxInput } from './ix-input.directive';
+import { IxOptionComponent } from './option.component';
+import { IxButtonComponent } from './button.component';
+import { IxDisplayComponent } from './display.component';
+import { IxInput } from './input.directive';
 
 const noop = () => { };
 
 const IX_SELECT_CONTROL_VALUE_ACCESSOR = new Provider(
   NG_VALUE_ACCESSOR, {
-    useExisting: forwardRef(() => IxSelectComponent),
+    useExisting: forwardRef(() => IxBuilderComponent),
     multi: true
   });
 
 @Component({
   moduleId: module.id,
   selector: 'ix-select-builder',
-  templateUrl: 'ix-select.component.html',
+  templateUrl: 'builder.component.html',
   host: { '(window:click)': 'onWindowClick($event)' },
   directives: [IxOptionComponent, IxButtonComponent, IxDisplayComponent],
   providers: [IX_SELECT_CONTROL_VALUE_ACCESSOR],
   //styleUrls: ['ix-select.component.css']
 })
-export class IxSelectComponent implements AfterContentInit, AfterViewInit, ControlValueAccessor {
+export class IxBuilderComponent implements AfterContentInit, AfterViewInit, ControlValueAccessor {
 
   @ContentChild(IxButtonComponent) btn: IxButtonComponent;
   @ContentChild(IxDisplayComponent) display: IxDisplayComponent;
@@ -158,4 +158,4 @@ export class IxSelectComponent implements AfterContentInit, AfterViewInit, Contr
   }
 }
 
-export const IX_DIRECTIVES = [IxSelectComponent, IxButtonComponent, IxOptionComponent, IxDisplayComponent, IxInput];
+export const IX_DIRECTIVES = [IxBuilderComponent, IxButtonComponent, IxOptionComponent, IxDisplayComponent, IxInput];

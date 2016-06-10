@@ -1,4 +1,31 @@
+<label>
+    Bootstrap Select
+</label>
+
+<ix-bootstrap-select>
+
+</ix-bootstrap-select>
+
+
+<label>
+    Combo Select
+</label>
+
+<ix-combo-select>
+
+</ix-combo-select>
+
+<label>
+    JQuery Select
+</label>
+
+<select class="show-tick" [(ngModel)]="ngModel" multiple data-actions-box="true" data-style="btn-success">
+   <option *ngFor="let option of options | async" [value]="option.id"> 
+     {{ option.name }}
+   </option>
+ </select>
+
+<!--
 <app-example-playground></app-example-playground>
-
 <app-example-http></app-example-http>
-
+-->

@@ -20,7 +20,6 @@ import {IxButtonComponent} from './ix-button.component';
 @Component({
   moduleId: module.id,
   selector: 'ix-display', 
-  //styles: [],
   template: `
     <ng-content></ng-content>
   `,
