@@ -4,10 +4,11 @@ import {
   describe,
   expect,
   it,
-  inject,
+  inject
 } from '@angular/core/testing';
 import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
 import { Component } from '@angular/core';
+import { Http } from '@angular/http';
 import { By } from '@angular/platform-browser';
 import { ExampleService } from '../shared';
 import { PlaygroundComponent } from './playground.component';
@@ -15,7 +16,7 @@ import { PlaygroundComponent } from './playground.component';
 describe('Component: Playground', () => {
   let builder: TestComponentBuilder;
 
-  beforeEachProviders(() => [PlaygroundComponent, ExampleService]);
+  beforeEachProviders(() => [PlaygroundComponent, ExampleService, Http]);
   beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
     builder = tcb;
   }));
