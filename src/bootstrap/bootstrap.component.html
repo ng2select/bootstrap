@@ -1,10 +1,12 @@
 <ix-select-builder (title)="setTitle($event)" [(ngModel)]="selectedOption" (toggle)="toggle($event)" [open]="open">
     <ix-display>
-        <input type="text" [(ngModel)]="inputTitle" (change)="comboInputChanged($event)" (blur)="blur($event)" />
-        <ix-button (toggle)="toggle($event)">
-            <span class="bs-caret"><span class="caret"></span></span>
+        <ix-button class="btn-group bootstrap-select show-tick" (toggle)="toggle($event)">
+            <!--<span class="filter-option pull-left" [innerHTML]="title"></span>&nbsp;<span class="bs-caret"><span class="caret"></span></span>-->
+            <button type="button" class="btn dropdown-toggle btn-success" data-toggle="dropdown">
+                <span class="filter-option pull-left" [innerHTML]="title"></span>&nbsp;
+                <span class="bs-caret"><span class="caret"></span></span>
+            </button>
         </ix-button>
-        <!--<span class="filter-option pull-left" [innerHTML]="title"></span>&nbsp;<span class="bs-caret"><span class="caret"></span></span>-->
     </ix-display>
     <ix-actions-box>
         <div class="bs-actionsbox">
@@ -14,8 +16,6 @@
             </div>
         </div>
     </ix-actions-box>
-    <ix-option *ngFor="let option of options | async" [value]="option.id" [title]="option.name">
-        <img [src]="option.gravatarSrc" height="20" width="20" />
-        <span>{{option.name}}</span>
-    </ix-option>
+    <!--<ng-content select="ix-option"></ng-content>-->
+    <ix-option *ngFor="let option of options; let i = index" [innerHTML]="option.elem.innerHTML"></ix-option>
 </ix-select-builder>

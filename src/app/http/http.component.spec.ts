@@ -4,31 +4,32 @@ import {
   describe,
   expect,
   it,
-  inject,
+  inject
 } from '@angular/core/testing';
 import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
+import { HTTP_PROVIDERS } from '@angular/http';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { ExampleService } from '../../shared';
-import { PlaygroundComponent } from './playground.component';
+import { HttpComponent } from './http.component';
+import { ExampleService, ExceptionService } from '../shared';
 
-describe('Component: Playground', () => {
+describe('Component: Http', () => {
   let builder: TestComponentBuilder;
 
-  beforeEachProviders(() => [PlaygroundComponent, ExampleService]);
+  beforeEachProviders(() => [ExampleService, ExceptionService, HttpComponent, HTTP_PROVIDERS]);
   beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
     builder = tcb;
   }));
 
-  it('should inject the component', inject([PlaygroundComponent],
-      (component: PlaygroundComponent) => {
+  it('should inject the component', inject([HttpComponent],
+      (component: HttpComponent) => {
     expect(component).toBeTruthy();
   }));
 
   it('should create the component', inject([], () => {
-    return builder.createAsync(PlaygroundComponentTestController)
+    return builder.createAsync(HttpComponentTestController)
       .then((fixture: ComponentFixture<any>) => {
-        let query = fixture.debugElement.query(By.directive(PlaygroundComponent));
+        let query = fixture.debugElement.query(By.directive(HttpComponent));
         expect(query).toBeTruthy();
         expect(query.componentInstance).toBeTruthy();
       });
@@ -38,10 +39,10 @@ describe('Component: Playground', () => {
 @Component({
   selector: 'test',
   template: `
-    <app-playground></app-playground>
+    <app-example-http></app-example-http>
   `,
-  directives: [PlaygroundComponent]
+  directives: [HttpComponent]
 })
-class PlaygroundComponentTestController {
+class HttpComponentTestController {
 }
 

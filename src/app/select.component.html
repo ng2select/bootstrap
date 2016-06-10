@@ -1,31 +1,33 @@
-<label>
-    Bootstrap Select
-</label>
+<div class="container-fluid">
 
-<ix-bootstrap-select>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <app-example-playground></app-example-playground>
+        </div>
+    </div>
 
-</ix-bootstrap-select>
+    <hr/>
 
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <app-example-custom></app-example-custom>
+        </div>
+    </div>
 
-<label>
-    Combo Select
-</label>
+    <hr/>
 
-<ix-combo-select>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <app-example-http></app-example-http>
+        </div>
+    </div>
 
-</ix-combo-select>
+    <hr/>
 
-<label>
-    JQuery Select
-</label>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <app-example-ui-ux></app-example-ui-ux>
+        </div>
+    </div>
 
-<select class="show-tick" [(ngModel)]="ngModel" multiple data-actions-box="true" data-style="btn-success">
-   <option *ngFor="let option of options | async" [value]="option.id"> 
-     {{ option.name }}
-   </option>
- </select>
-
-<!--
-<app-example-playground></app-example-playground>
-<app-example-http></app-example-http>
--->
+</div>

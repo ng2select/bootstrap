@@ -27,32 +27,16 @@ import { IX_DIRECTIVES, IxOptionComponent } from '../core';
   pipes: [COMMON_PIPES]
 })
 export class BootstrapSelectComponent implements OnInit {
-  public open: boolean = false;
-  public selectedOption: IxOptionComponent;
-  public inputTitle: string;
-  //public options: Observable<IUser[]>;
+  @ContentChildren(IxOptionComponent) options: Observable<IxOptionComponent>;
 
-  private _title: string;
-
-    //get accessor
-  get title(): string { return this._title; };
-
-  //set accessor including set inputTitle
-  set title(newVal: string) {
-    if (newVal !== this._title) {
-      this._title = newVal;
-      this.inputTitle = newVal;
-    }
-  }
+  open: boolean = false;
+  selectedOption: IxOptionComponent;
+  title: string = "<-- select -->";
 
   constructor() { }
 
   ngOnInit() {
 
-  }
-
-  comboInputChanged(newVal){
-    console.log('comboInputChanged', newVal);
   }
 
   blur($event){
@@ -62,7 +46,7 @@ export class BootstrapSelectComponent implements OnInit {
   setTitle(option: IxOptionComponent){
     if(!option || !option.elem)
     return;
-    this.title = option.elem.title;
+    this.title = option.elem.innerHTML;
     console.log('this.selectedOption', this.selectedOption);
   }
 

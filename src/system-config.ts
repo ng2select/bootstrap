@@ -34,15 +34,11 @@ const barrels: string[] = [
   // App specific barrels.
   'app',
   'app/shared',
-  'app/ng2select',
-  'app/example',
-  'app/example/shared',
-  'app/example/http',
-  'app/example/ui-ux',
-  'app/example/layout',
-  'app/example/playground',
-  'app/ix-select',
-  'app/ix-select/shared',
+  'app/shared/layout',
+  'app/custom',
+  'app/http',
+  'app/ui-ux',
+  'app/playground',
 
   // Module specific barrels
   'core',

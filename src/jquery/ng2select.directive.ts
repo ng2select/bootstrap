@@ -77,32 +77,26 @@ export class Ng2Select implements OnInit, AfterContentInit, AfterViewInit, Contr
   constructor(@Query(Ng2Option) options: QueryList<Ng2Option>, private elemRef: ElementRef) {
     this.options = options;
     this.elem = this.elemRef.nativeElement;
-
-    console.log('select directive <option></option>s', this.options);
-
-    console.log('select directive elem', this.elem);
   }
 
   ngOnInit() {
     this.getSetNgModel(this.getNgModel());
-    console.log('ngModel', this.ngModel);
   }
 
   ngAfterContentInit(){
     this.options.changes
       .do(change => $(this.elem).selectpicker('refresh'))
-      .do(change => console.warn('change', change))
       .subscribe();
   }
 
   ngAfterViewInit() {
     this.selectPicker = this.initSelectPicker(this.config || new Ng2SelectConfig());
     this.subscribeToChanges();
-    console.log('this.selectPicker', this.selectPicker);
+    //console.log('this.selectPicker', this.selectPicker);
   }
 
   ngOnChanges(change: { [key: string]: SimpleChange }) {
-    console.log('select ngOnChanges()', change);
+    //console.log('select ngOnChanges()', change);
     // let keys: string[] = Object.keys(change);
     // if(keys.indexOf('ngModel') > -1)
     //   this.getSetNgModel(change['ngModel'].currentValue)

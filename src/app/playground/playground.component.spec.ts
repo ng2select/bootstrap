@@ -4,32 +4,31 @@ import {
   describe,
   expect,
   it,
-  inject
+  inject,
 } from '@angular/core/testing';
 import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
-import { HTTP_PROVIDERS } from '@angular/http';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { HttpComponent } from './http.component';
-import { ExampleService, ExceptionService } from '../../shared';
+import { ExampleService } from '../shared';
+import { PlaygroundComponent } from './playground.component';
 
-describe('Component: Http', () => {
+describe('Component: Playground', () => {
   let builder: TestComponentBuilder;
 
-  beforeEachProviders(() => [ExampleService, ExceptionService, HttpComponent, HTTP_PROVIDERS]);
+  beforeEachProviders(() => [PlaygroundComponent, ExampleService]);
   beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
     builder = tcb;
   }));
 
-  it('should inject the component', inject([HttpComponent],
-      (component: HttpComponent) => {
+  it('should inject the component', inject([PlaygroundComponent],
+      (component: PlaygroundComponent) => {
     expect(component).toBeTruthy();
   }));
 
   it('should create the component', inject([], () => {
-    return builder.createAsync(HttpComponentTestController)
+    return builder.createAsync(PlaygroundComponentTestController)
       .then((fixture: ComponentFixture<any>) => {
-        let query = fixture.debugElement.query(By.directive(HttpComponent));
+        let query = fixture.debugElement.query(By.directive(PlaygroundComponent));
         expect(query).toBeTruthy();
         expect(query.componentInstance).toBeTruthy();
       });
@@ -39,10 +38,10 @@ describe('Component: Http', () => {
 @Component({
   selector: 'test',
   template: `
-    <app-example-http></app-example-http>
+    <app-example-playground></app-example-playground>
   `,
-  directives: [HttpComponent]
+  directives: [PlaygroundComponent]
 })
-class HttpComponentTestController {
+class PlaygroundComponentTestController {
 }
 

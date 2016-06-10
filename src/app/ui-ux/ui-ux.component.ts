@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ExampleLayoutComponent } from '../layout';
-import { Ng2Select, Ng2Option } from '../../ng2select';
+import { ExampleLayoutComponent } from '../shared';
+import { Ng2Select, Ng2Option } from '../../jquery';
 
 @Component({
   moduleId: module.id,
