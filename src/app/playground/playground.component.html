@@ -2,12 +2,14 @@
     <ng2-title>Playground</ng2-title>
     <ng2-example>
 
-        <ix-bootstrap-select>
+        <ix-bootstrap-select [(ngModel)]="ngModel" (change)="onChange($event)">
             <ix-option *ngFor="let option of options | async" [value]="option.id" [title]="option.name">
                 <img [src]="option.gravatarSrc" height="20" width="20" />
                 <span>{{option.name}}</span>
             </ix-option>
         </ix-bootstrap-select>
+
+        {{ngModel}}
 
     </ng2-example>
     <ng2-code-highlight>

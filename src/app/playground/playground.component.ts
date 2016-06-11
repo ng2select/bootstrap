@@ -13,6 +13,7 @@ import {
   ContentChild,
   ViewChildren
 } from '@angular/core';
+
 import { COMMON_DIRECTIVES, COMMON_PIPES } from '@angular/common';
 import { Observable } from 'rxjs/Rx';
 
@@ -24,15 +25,16 @@ import { ExampleLayoutComponent, ExampleService, IUser } from '../shared';
 @Component({
   moduleId: module.id,
   selector: 'app-example-playground',
-  templateUrl: 'playground.component.html', 
+  templateUrl: 'playground.component.html',
   styleUrls: ['playground.component.css'],
   directives: [COMMON_DIRECTIVES, BootstrapSelectComponent, ExampleLayoutComponent, IX_DIRECTIVES],
   pipes: [COMMON_PIPES]
 })
 export class PlaygroundComponent implements OnInit {
-  public open: boolean = false;
-  public selectedOption: IxOptionComponent;
-  public options: Observable<IUser[]>;
+  changeCount = 0;
+  open: boolean = false;
+  ngModel = null;
+  options: Observable<IUser[]>;
 
   constructor(public exampleSvc: ExampleService) { }
 
@@ -41,13 +43,8 @@ export class PlaygroundComponent implements OnInit {
     //this.options.subscribe();
   }
 
-  blur($event){
-    console.log('blur => this.options', this.options);
-    //this.options.flatMapTo((users, user, outer, inner) => user, null).toArray();
-  }
-
-  toggle(newVal: boolean): void{
-      this.open = newVal;
+  onChange(newVal){
+    this.changeCount++;
   }
 
 }

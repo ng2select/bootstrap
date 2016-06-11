@@ -1,4 +1,4 @@
-<ix-select-builder (title)="setTitle($event)" [(ngModel)]="selectedOption" (toggle)="toggle($event)" [open]="open">
+<ix-select-builder (change)="onChange($event)" (title)="setTitle($event)" (toggle)="toggle($event)" [(ngModel)]="selectedOption" [open]="open">
     <ix-display>
         <ix-button class="btn-group bootstrap-select show-tick" (toggle)="toggle($event)">
             <!--<span class="filter-option pull-left" [innerHTML]="title"></span>&nbsp;<span class="bs-caret"><span class="caret"></span></span>-->
@@ -17,5 +17,5 @@
         </div>
     </ix-actions-box>
     <!--<ng-content select="ix-option"></ng-content>-->
-    <ix-option *ngFor="let option of options; let i = index" [innerHTML]="option.elem.innerHTML"></ix-option>
+    <ix-option *ngFor="let option of options; let i = index" [innerHTML]="option.elem.innerHTML" [title]="option.title" [value]="option.value"></ix-option>
 </ix-select-builder>

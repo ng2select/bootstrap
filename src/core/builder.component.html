@@ -5,7 +5,7 @@
         <ng-content select="ix-actions-box"></ng-content>
         <ul class="dropdown-menu inner">
             <li *ngFor="let option of options; let i = index" (click)="selectOption(option)" [class.active]="option.active" [innerHTML]="option.elem.innerHTML">
-                <!-- <ix-option [innerHTML]="" /> injected here --> 
+                <!-- <ix-option [innerHTML]="" /> injected here -->
             </li>
         </ul>
     </div>

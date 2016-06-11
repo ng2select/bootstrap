@@ -32,7 +32,6 @@ export class ComboSelectComponent implements OnInit {
   open: boolean = false;
   selectedOption: IxOptionComponent;
   inputTitle: string;
-  //public options: Observable<IUser[]>;
 
   private _title: string;
 
@@ -61,11 +60,10 @@ export class ComboSelectComponent implements OnInit {
     //onsole.log('blur => this.options', this.options);
   }
 
-  setTitle(option: IxOptionComponent) {
-    if (!option || !option.elem)
+  setTitle(option: IxOptionComponent){
+    if(!option || !option.elem)
       return;
-    this.title = option.elem.title;
-    console.log('this.selectedOption', this.selectedOption);
+    this.title = option.title;
   }
 
   toggle(newVal: boolean): void {

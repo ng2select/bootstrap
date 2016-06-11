@@ -29,8 +29,9 @@ import { IX_DOM_CONSTANTS } from './shared';
   `
 })
 export class IxOptionComponent implements AfterViewInit {
-  @Input() value: string;
   @Input() active = false;
+  @Input() value: any;
+  @Input() title: any;
   @Output() setActive = new EventEmitter();
 
   elem = null;
@@ -49,6 +50,6 @@ export class IxOptionComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-
+    
   }
 }

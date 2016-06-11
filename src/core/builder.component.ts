@@ -35,7 +35,7 @@ import { IxInput } from './input.directive';
 
 const noop = () => { };
 
-const IX_SELECT_CONTROL_VALUE_ACCESSOR = new Provider(
+const IX_BUILDER_CONTROL_VALUE_ACCESSOR = new Provider(
   NG_VALUE_ACCESSOR, {
     useExisting: forwardRef(() => IxBuilderComponent),
     multi: true
@@ -47,7 +47,7 @@ const IX_SELECT_CONTROL_VALUE_ACCESSOR = new Provider(
   templateUrl: 'builder.component.html',
   host: { '(window:click)': 'onWindowClick($event)' },
   directives: [IxOptionComponent, IxButtonComponent, IxDisplayComponent],
-  providers: [IX_SELECT_CONTROL_VALUE_ACCESSOR],
+  providers: [IX_BUILDER_CONTROL_VALUE_ACCESSOR],
   //styleUrls: ['ix-select.component.css']
 })
 export class IxBuilderComponent implements AfterContentInit, AfterViewInit, ControlValueAccessor {
@@ -60,29 +60,15 @@ export class IxBuilderComponent implements AfterContentInit, AfterViewInit, Cont
   @Input() ngModel: any;
   @Input() open: boolean;
 
+  @Output() change = new EventEmitter();
   @Output() title = new EventEmitter();
   @Output() toggle = new EventEmitter();
-  @Output() ngModelChange: EventEmitter<any> = new EventEmitter();
+  @Output() ngModelChange = new EventEmitter();
 
   private elem = null;
   private renderer: Renderer;
-  private _value: any = '';
-
-  //Placeholders for the ngModel callbacks
-  private _onTouchedCallback: (_: any) => void = noop;
-
-  private _onChangeCallback: (_: any) => void = noop;
-
-  //get accessor
-  get value(): any { return this.ngModel; };
-
-  //set accessor including call the ngModel onchange callback
-  set value(v: any) {
-    if (v !== this.ngModel) {
-      this.ngModel = v;
-      this._onChangeCallback(v);
-    }
-  }
+  private onNgModelTouched: (_: any) => void = noop;
+  private onNgModelChanged: (_: any) => void = noop;
 
   constructor(renderer: Renderer, elemRef: ElementRef) {
     this.elem = elemRef.nativeElement;
@@ -96,15 +82,7 @@ export class IxBuilderComponent implements AfterContentInit, AfterViewInit, Cont
 
   // contentChildren are set
   ngAfterContentInit() {
-    console.log('this.input', this.input);
-
-    //console.log('this.options', this.options);
-
-    //this.options.changes.debounceTime(200).do(o => this.setTitle(o)).subscribe();
-
-    this.options.forEach(option => console.log('option', option));
-
-    let initialSelectedOptions = this.options.filter(o => o.value === this.value);
+    let initialSelectedOptions = this.options.filter(o => o.value === this.ngModel);
 
     if (initialSelectedOptions.length)
       this.selectOption(initialSelectedOptions[0]);
@@ -129,13 +107,17 @@ export class IxBuilderComponent implements AfterContentInit, AfterViewInit, Cont
     // deactivate all options
     this.options.toArray().forEach(option => option.active = false);
 
-    // activate the option the user has clicked on
     option.active = true;
 
-    this.value = option;
+    this.setNgModel(option);
 
-    // set title based on option selected
     this.setTitle(option);
+
+    this.change.emit(option);
+  }
+
+  setNgModel(option: IxOptionComponent){
+    this.onNgModelChanged(option);
   }
 
   setTitle(option: IxOptionComponent) {
@@ -144,17 +126,17 @@ export class IxBuilderComponent implements AfterContentInit, AfterViewInit, Cont
 
   //From ControlValueAccessor interface
   writeValue(value: any) {
-    this.value = value;
+    this.ngModel = value;
   }
 
   //From ControlValueAccessor interface
   registerOnChange(fn: any) {
-    this._onChangeCallback = fn;
+    this.onNgModelChanged = fn;
   }
 
   //From ControlValueAccessor interface
   registerOnTouched(fn: any) {
-    this._onTouchedCallback = fn;
+    this.onNgModelTouched = fn;
   }
 }
 

@@ -23,7 +23,7 @@ export class ExampleService {
   getItems(): Observable<IUser[]> {
     return this.http.get(this.endpoint)
       .map((response: Response) => <IUser[]>response.json())
-      .do(data => console.log('All: ' + JSON.stringify(data)))
+      //.do(data => console.log('All: ' + JSON.stringify(data)))
       .catch(this.exceptionSvc.catchBadResponse);
   }
 
