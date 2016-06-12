@@ -21,18 +21,18 @@ import { IX_DOM_CONSTANTS } from './shared';
   moduleId: module.id,
   selector: 'ix-option',
   template: `
-    <a [id]="getId()" (click)="click()" [class.active]="active">
-      <span class="text">
+    <div [id]="getId()" (click)="onClick()">
+      <div class="text">
         <ng-content></ng-content>
-      </span>
-    </a>
+      </div>
+    </div>
   `
 })
 export class IxOptionComponent implements AfterViewInit {
-  @Input() active = false;
+  @Input() active: boolean = false;
   @Input() value: any;
   @Input() title: any;
-  @Output() setActive = new EventEmitter();
+  //@Output() click = new EventEmitter();
 
   elem = null;
 
@@ -40,8 +40,8 @@ export class IxOptionComponent implements AfterViewInit {
     this.elem = elementRef.nativeElement;
   }
 
-  click(): void {
-    this.setActive.emit(this);
+  onClick(): void {
+    //this.click.emit(null);
   }
 
   getId() {
@@ -50,6 +50,6 @@ export class IxOptionComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    
+
   }
 }

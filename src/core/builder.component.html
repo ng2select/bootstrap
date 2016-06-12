@@ -4,8 +4,11 @@
     <div class="dropdown-menu open">
         <ng-content select="ix-actions-box"></ng-content>
         <ul class="dropdown-menu inner">
-            <li *ngFor="let option of options; let i = index" (click)="selectOption(option)" [class.active]="option.active" [innerHTML]="option.elem.innerHTML">
+            <li *ngFor="let option of options; let i = index" (click)="selectOption(option)" [class.active]="option.active">
                 <!-- <ix-option [innerHTML]="" /> injected here -->
+
+                <div style="display: inline-block" [innerHTML]="option.elem.innerHTML"></div>
+                <span *ngIf="option.active" class="glyphicon glyphicon-ok check-mark"></span>
             </li>
         </ul>
     </div>

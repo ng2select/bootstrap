@@ -10,3 +10,9 @@
     position: relative;
     float: left;
 }
+span.check-mark {
+  position: absolute;
+  display: inline-block;
+  right: 15px;
+  margin-top: 5px;
+}
