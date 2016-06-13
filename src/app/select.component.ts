@@ -22,11 +22,10 @@ import { UiUxComponent } from './ui-ux';
 })
 export class SelectAppComponent implements OnInit, OnDestroy {
 
-  ngModel;
   options: Observable<IUser[]>;
 
   constructor(private exampleSvc: ExampleService) {
-    
+
   }
 
   ngOnInit() {
@@ -34,6 +33,6 @@ export class SelectAppComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    
+
   }
 }

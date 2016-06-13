@@ -7,6 +7,9 @@ body{
 h2{
   color: #98c379;
 }
+h2 * span{
+  color: #e5c07b;
+}
 .bs-docs-example{
   background-color: #282c34;
   border: 1px solid #1b1d23 !important;

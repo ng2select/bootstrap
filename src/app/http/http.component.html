@@ -1,8 +1,8 @@
 <app-example-layout>
-  <ng2-title>Async (observable)</ng2-title>
+  <ng2-title>Async <span>(observable)</span></ng2-title>
   <ng2-example>
     <select class="show-tick" [(ngModel)]="ngModel" multiple data-actions-box="true" data-style="btn-success">
-      <option *ngFor="let user of users | async" [value]="user.id"> 
+      <option *ngFor="let user of users | async" [value]="user.id">
         {{ user.name }}
       </option>
     </select>
@@ -17,4 +17,3 @@
 hljs.tabReplace = '    ';
 hljs.initHighlightingOnLoad();
 </script>-->
-  

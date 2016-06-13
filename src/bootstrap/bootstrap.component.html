@@ -1,6 +1,6 @@
 <ix-select-builder (change)="onChange($event)" (title)="setTitle($event)" (toggle)="toggle($event)" [(ngModel)]="selectedOption" [open]="open">
     <ix-display>
-        <ix-button class="btn-group bootstrap-select show-tick" (toggle)="toggle($event)">
+        <ix-button class="btn-group bootstrap-select show-tick" (click)="toggle(!open)">
             <!--<span class="filter-option pull-left" [innerHTML]="title"></span>&nbsp;<span class="bs-caret"><span class="caret"></span></span>-->
             <button type="button" class="btn dropdown-toggle btn-success" data-toggle="dropdown">
                 <span class="filter-option pull-left" [innerHTML]="title"></span>&nbsp;

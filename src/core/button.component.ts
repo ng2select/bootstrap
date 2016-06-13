@@ -17,27 +17,25 @@ import {
 
 @Component({
   moduleId: module.id,
-  selector: 'ix-button', 
+  selector: 'ix-button',
   template: `
-    <span (click)="onclick($event)">
       <ng-content></ng-content>
-    </span>
   `,
   directives:[]
 })
-export class IxButtonComponent implements AfterViewInit {  
-  @Output() toggle = new EventEmitter();
+export class IxButtonComponent implements AfterViewInit {
+  //@Output() toggle = new EventEmitter();
   elem = null;
-  
-  constructor(elementRef: ElementRef){ 
+
+  constructor(elementRef: ElementRef){
     this.elem = elementRef.nativeElement;
   }
-  
+
   onclick($event){
-    this.toggle.emit(true);
+    //this.toggle.emit(true);
     return false;
   }
-  
+
   ngAfterViewInit(){
 
   }
