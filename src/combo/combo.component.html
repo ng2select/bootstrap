@@ -1,6 +1,6 @@
 <ix-select-builder (toggle)="toggle($event)" [open]="open">
     <ix-display>
-        <input type="text" class="filter-option pull-left col-sm-10" [(ngModel)]="inputTitle" (change)="onComboInputChange($event)" (blur)="blur($event)" />
+        <input type="text" class="filter-option pull-left col-sm-10" [(ngModel)]="inputTitle" (change)="onComboInputChange($event)" (blur)="onBlur($event)" />
         <span (click)="toggle(!open)" class="btn btn-default col-sm-2">
             <span class="bs-caret"><span class="caret"></span></span>
         </span>

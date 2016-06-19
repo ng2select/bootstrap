@@ -37,6 +37,7 @@ import { IxDisplayComponent } from './display.component';
   moduleId: module.id,
   selector: 'ix-select-builder',
   templateUrl: 'builder.component.html',
+  styleUrls: ['builder.component.css'],
   host: { '(window:click)': 'onWindowClick($event)' },
   directives: [IxOptionComponent, IxDisplayComponent]
 })

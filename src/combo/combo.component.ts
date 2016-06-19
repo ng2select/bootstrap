@@ -84,11 +84,18 @@ export class ComboSelectComponent implements OnInit, AfterContentInit, ControlVa
         this.setNgModelSingleselect(option);
     }
 
-    onComboInputChange(){
+    onComboInputChange($event) {
 
     }
 
-    blur($event) {
+    onBlur($event) {
+        let option = this.options.filter(o => o.title == this.inputTitle)[0];
+        if (!option) {
+            this.inputTitle = this.title;
+            return;
+        }
+
+        this.setNgModelSingleselect(option);
         //onsole.log('blur => this.options', this.options);
     }
 

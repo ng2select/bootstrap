@@ -1,4 +1,4 @@
-<ix-select-builder (toggle)="toggle($event)" [open]="open">
+<ix-select-builder (toggle)="toggle($event)" [open]="open" [class.open]="open">
     <ix-display class="btn-group bootstrap-select show-tick" (click)="toggle(!open)">
             <button type="button" class="btn dropdown-toggle btn-success" data-toggle="dropdown">
                 <span class="filter-option pull-left" [innerHTML]="title"></span>&nbsp;

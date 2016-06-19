@@ -11,7 +11,8 @@ import {
   Inject,
   AfterContentInit,
   ContentChild,
-  ViewChildren
+  ViewChildren,
+  ViewEncapsulation
 } from '@angular/core';
 
 import { COMMON_DIRECTIVES, COMMON_PIPES } from '@angular/common';

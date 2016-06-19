@@ -6,15 +6,16 @@
 
         <ng-content select="ix-actions-box"></ng-content>
 
-        <!-- <ul class="dropdown-menu inner"> -->
+        <ng-content></ng-content>
 
-            <!-- <li *ngFor="let option of options; let i = index" (click)="selectOption(option)" [class.active]="option.active">
-                <div style="display: inline-block" [innerHTML]="option.elem.innerHTML"></div>
-                <span *ngIf="option.active" class="glyphicon glyphicon-ok check-mark"></span>
-            </li> -->
-
-            <ng-content></ng-content>
-
-        <!-- </ul> -->
     </div>
 </div>
+
+<!-- <ul class="dropdown-menu inner"> -->
+
+    <!-- <li *ngFor="let option of options; let i = index" (click)="selectOption(option)" [class.active]="option.active">
+        <div style="display: inline-block" [innerHTML]="option.elem.innerHTML"></div>
+        <span *ngIf="option.active" class="glyphicon glyphicon-ok check-mark"></span>
+    </li> -->
+
+<!-- </ul> -->
