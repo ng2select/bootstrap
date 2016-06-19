@@ -1,11 +1,13 @@
-<ix-select-builder (title)="setTitle($event)" (toggle)="toggle($event)" [(ngModel)]="selectedOption" [open]="open">
+<ix-select-builder (toggle)="toggle($event)" [open]="open">
     <ix-display>
-      <!-- <span style="width:100%;"> -->
-        <input type="text" class="filter-option pull-left col-sm-10" [(ngModel)]="inputTitle" (change)="comboInputChanged($event)" (blur)="blur($event)" />
-        <ix-button class="btn btn-default col-sm-2" (click)="toggle(!open)">
+        <input type="text" class="filter-option pull-left col-sm-10" [(ngModel)]="inputTitle" (change)="onComboInputChange($event)" (blur)="blur($event)" />
+        <span (click)="toggle(!open)" class="btn btn-default col-sm-2">
             <span class="bs-caret"><span class="caret"></span></span>
-        </ix-button>
-       <!-- </span> -->
+        </span>
     </ix-display>
-    <ix-option *ngFor="let option of options; let i = index" [innerHTML]="option.elem.innerHTML" [title]="option.title" [value]="option.value"></ix-option>
+
+    <ul class="dropdown-menu inner">
+      <ng-content></ng-content>
+      <!-- <ix-option *ngFor="let option of options; let i = index" [innerHTML]="option.elem.innerHTML" [title]="option.title" [value]="option.value"></ix-option> -->
+    </ul>
 </ix-select-builder>

@@ -15,24 +15,21 @@ import {
   ViewChildren
 } from '@angular/core';
 
-import {IxButtonComponent} from './button.component';
-
 @Component({
   moduleId: module.id,
-  selector: 'ix-display', 
+  selector: 'ix-display',
   template: `
     <ng-content></ng-content>
-  `,
-  directives:[IxButtonComponent]
+  `
 })
-export class IxDisplayComponent implements AfterViewInit {  
+export class IxDisplayComponent implements AfterViewInit {
   elem = null;
-  
-  constructor(elementRef: ElementRef){ //private ixSelect: IxSelectComponent
+
+  constructor(elementRef: ElementRef){
     this.elem = elementRef.nativeElement;
   }
-  
+
   ngAfterViewInit(){
-    
+
   }
 }

@@ -24,14 +24,14 @@ import { ExampleLayoutComponent, ExampleService, IUser } from '../shared';
 @Component({
   moduleId: module.id,
   selector: 'app-example-custom',
-  templateUrl: 'custom.component.html', 
+  templateUrl: 'custom.component.html',
   styleUrls: ['custom.component.css'],
   directives: [COMMON_DIRECTIVES, ComboSelectComponent, ExampleLayoutComponent, IX_DIRECTIVES],
   pipes: [COMMON_PIPES]
 })
 export class CustomComponent implements OnInit {
   public open: boolean = false;
-  public selectedOption: IxOptionComponent;
+  public ngModel = null;
   public options: Observable<IUser[]>;
 
   constructor(public exampleSvc: ExampleService) { }
@@ -44,6 +44,10 @@ export class CustomComponent implements OnInit {
   blur($event){
     console.log('blur => this.options', this.options);
     //this.options.flatMapTo((users, user, outer, inner) => user, null).toArray();
+  }
+
+  onChange(newVal){
+
   }
 
   toggle(newVal: boolean): void{

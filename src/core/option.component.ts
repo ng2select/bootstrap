@@ -21,18 +21,19 @@ import { IX_DOM_CONSTANTS } from './shared';
   moduleId: module.id,
   selector: 'ix-option',
   template: `
-    <div [id]="getId()" (click)="onClick()">
+    <li (click)="onClick()">
       <div class="text">
         <ng-content></ng-content>
+        <span *ngIf="active" class="glyphicon glyphicon-ok check-mark"></span>
       </div>
-    </div>
+    </li>
   `
 })
 export class IxOptionComponent implements AfterViewInit {
   @Input() active: boolean = false;
   @Input() value: any;
   @Input() title: any;
-  //@Output() click = new EventEmitter();
+  @Output() click: EventEmitter<IxOptionComponent> = new EventEmitter<IxOptionComponent>();
 
   elem = null;
 
@@ -40,16 +41,11 @@ export class IxOptionComponent implements AfterViewInit {
     this.elem = elementRef.nativeElement;
   }
 
-  onClick(): void {
-    //this.click.emit(null);
-  }
-
-  getId() {
-    return IX_DOM_CONSTANTS.optionPrefix + this.value;
-    // return `${IX_DOM_CONSTANTS.optionPrefix}${this.value}`;
-  }
-
   ngAfterViewInit() {
 
+  }
+
+  onClick(){
+    this.click.emit(this);
   }
 }
