@@ -1,15 +1,11 @@
-<div class="btn-group bootstrap-select show-tick" [ngClass]="{'open': open, 'dropup': isDropup()}">
+<ng-content select="ix-display"></ng-content>
 
-    <ng-content select="ix-display"></ng-content>
+<ng-content *ngIf="open" select="ix-actions-box"></ng-content>
 
-    <div class="dropdown-menu open">
+<ng-content *ngIf="open"></ng-content>
 
-        <ng-content select="ix-actions-box"></ng-content>
 
-        <ng-content></ng-content>
 
-    </div>
-</div>
 
 <!-- <ul class="dropdown-menu inner"> -->
 

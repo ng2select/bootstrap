@@ -1,0 +1,42 @@
+div {
+    display: block;
+    float: left;
+    width: 100%;
+    padding: 0 10px;
+    font-size: 14px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border: solid 1px #dddddd;
+    border-top: none;
+}
+
+div.active {
+    background: #2875c7;
+    color: white;
+}
+div {
+    float: left;
+    width: 100%;
+    padding: 0 10px;
+    font-size: 14px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border: solid 1px #dddddd;
+    border-top: none;
+}
+
+div.active > i {
+    display: inline-block;
+}
+div > i {
+    float: left;
+    width: 20px;
+    margin-left: -20px;
+    display: none;
+}
+div > * {
+    height: 40px;
+    line-height: 40px !important;
+    display: inline-block;
+    vertical-align: middle;
+}

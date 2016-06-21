@@ -17,8 +17,8 @@ import { UiUxComponent } from './ui-ux';
   styleUrls: ['select.component.css'],
   directives: [CustomComponent, HttpComponent, PlaygroundComponent, UiUxComponent],
   providers: [HTTP_PROVIDERS, ExampleService, ExceptionService],
-  pipes: [COMMON_PIPES],
-  encapsulation: ViewEncapsulation.None
+  pipes: [COMMON_PIPES]
+  //encapsulation: ViewEncapsulation.None
 })
 export class SelectAppComponent implements OnInit, OnDestroy {
 

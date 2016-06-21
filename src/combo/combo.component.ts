@@ -88,6 +88,10 @@ export class ComboSelectComponent implements OnInit, AfterContentInit, ControlVa
 
     }
 
+    isDropup(){
+      
+    }
+
     onBlur($event) {
         let option = this.options.filter(o => o.title == this.inputTitle)[0];
         if (!option) {

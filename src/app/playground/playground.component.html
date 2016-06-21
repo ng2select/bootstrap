@@ -3,10 +3,10 @@
     <ng2-example>
 
         <ix-bootstrap-select (change)="onChange($event)" [(ngModel)]="ngModel" [multiple]="true">
-            <ix-option *ngFor="let option of options | async" [value]="option.id" [title]="option.name">
+            <li *ngFor="let option of options | async" [value]="option.id" [title]="option.name">
                 <img [src]="option.gravatarSrc" height="20" width="20" />
                 <span>{{option.name}}</span>
-            </ix-option>
+            </li>
         </ix-bootstrap-select>
 
         <span class="red">{{ngModel}}</span>

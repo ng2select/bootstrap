@@ -19,14 +19,17 @@ import { IX_DOM_CONSTANTS } from './shared';
 
 @Component({
   moduleId: module.id,
-  selector: 'ix-option',
+  selector: 'ix-select-builder li',
+  //styleUrls: ['option.component.css'],
+  host: {
+    '[class.selected]': 'active'
+  },
   template: `
-    <li (click)="onClick()">
-      <div class="text">
+    <a (click)="onClick()">
         <ng-content></ng-content>
-        <span *ngIf="active" class="glyphicon glyphicon-ok check-mark"></span>
-      </div>
-    </li>
+        <!-- <i class="fa fa-check"></i> -->
+        <span class="glyphicon glyphicon-ok check-mark"></span>
+    </a>
   `
 })
 export class IxOptionComponent implements AfterViewInit {

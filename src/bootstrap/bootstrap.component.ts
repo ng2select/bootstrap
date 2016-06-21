@@ -56,15 +56,19 @@ export class BootstrapSelectComponent implements OnInit, AfterContentInit, Contr
 
     }
 
-    ngAfterContentInit(){
+    ngAfterContentInit() {
         this.options.changes.subscribe(options => options.forEach(option => {
-          console.log('option', option);
-          option.click.subscribe(o => this.onChange(o))
+            console.log('option', option);
+            option.click.subscribe(o => this.onChange(o))
         }));
     }
 
-    blur($event) {
+    onBlur($event) {
         //console.log('blur => this.options', this.options);
+    }
+
+    isDropup() {
+
     }
 
     isMultiselect() {
@@ -75,8 +79,8 @@ export class BootstrapSelectComponent implements OnInit, AfterContentInit, Contr
         if (!option || !option.elem)
             return;
 
-        if(this.isMultiselect())
-          return this.setNgModelMultiselect(option);
+        if (this.isMultiselect())
+            return this.setNgModelMultiselect(option);
 
         return this.setNgModelSingleselect(option);
     }
@@ -96,44 +100,53 @@ export class BootstrapSelectComponent implements OnInit, AfterContentInit, Contr
         /* Toogle the clicked option's active property using the observable list */
         this.options.filter(o => o.value == option.value).forEach(o => o.active = !o.active);
 
-        let newVals = this.options.filter(o => o.active).map(o => o.value);
+        let activeOptions: IxOptionComponent[] = this.options.filter(o => o.active);
+        let newVals: any[] = activeOptions.map(o => o.value);
         this.onNgModelChanged(newVals);
         this.change.emit(newVals);
 
-        this.setTitleMultiselect(this.options);
+        this.setTitleMultiselect(activeOptions);
     }
 
     selectAll() {
-      /* Set all options as active using the observable list */
-      this.options.forEach(o => o.active = true);
+        /* Set all options as active using the observable list */
+        this.options.forEach(o => o.active = true);
 
-      let newVals = this.options.filter(o => o.active).map(o => o.value);
-      this.onNgModelChanged(newVals);
-      this.change.emit(newVals);
+        let activeOptions: IxOptionComponent[] = this.options.filter(o => o.active);
+        let newVals: any[] = activeOptions.map(o => o.value);
+        this.onNgModelChanged(newVals);
+        this.change.emit(newVals);
 
-      this.setTitleMultiselect(this.options);
+        this.setTitleMultiselect(activeOptions);
     }
 
     unselectAll() {
-      /* Set all options as inactive using the observable list */
-      this.options.forEach(o => o.active = false);
+        /* Set all options as inactive using the observable list */
+        this.options.forEach(o => o.active = false);
 
-      let newVals = this.options.filter(o => o.active).map(o => o.value);
-      this.onNgModelChanged(newVals);
-      this.change.emit(newVals);
+        let activeOptions: IxOptionComponent[] = this.options.filter(o => o.active);
+        let newVals: any[] = activeOptions.map(o => o.value);
+        this.onNgModelChanged(newVals);
+        this.change.emit(newVals);
 
-      this.setTitleMultiselect(this.options);
+        this.setTitleMultiselect(activeOptions);
     }
 
     setTitle(option: IxOptionComponent) {
+        console.log('option (setTitle() - bootstrap)', option);
         if (!option || !option.elem)
             return;
-        this.title = option.elem.innerHTML;
+        this.title = option.title;
     }
 
-    setTitleMultiselect(options: QueryList<IxOptionComponent>) {
-        if (!options.length)
-            return;
+    setTitleMultiselect(activeOptions: IxOptionComponent[]) {
+        if (!activeOptions.length)
+            return this.title = '<-- select -->';
+
+        if(activeOptions.length <= 2)
+          return this.title = activeOptions.map(o => o.title).join(', ');
+
+        return this.title = `${activeOptions.length} selected`;
         //let newVals: any[] = this.options.filter(o => o.active === true).flatMap(project: (value: IxOptionComponent, index: number) => Subscribable<I> | Promise<I> | ArrayLike<I>, resultSelector: (outerValue: IxOptionComponent, innerValue: I, outerIndex: number, innerIndex: number) => R, concurrent?: number).toArray();
         //this.title = newVals.join(',');
     }
