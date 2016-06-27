@@ -19,7 +19,7 @@ import {
   Renderer
 } from '@angular/core';
 
-import {DOCUMENT} from '@angular/platform-browser';
+import { DOCUMENT } from '@angular/platform-browser';
 
 import {
   ControlValueAccessor,
@@ -38,7 +38,8 @@ import { IxDisplayComponent } from './display.component';
   selector: 'ix-select-builder',
   templateUrl: 'builder.component.html',
   styleUrls: ['builder.component.css'],
-  host: { '(window:click)': 'onWindowClick($event)' },
+  host: { '(window:click)': 'onWindowClick($event)', '[window:height]': 'windowHeight' },
+  exportAs: 'builderExport',
   directives: [IxOptionComponent, IxDisplayComponent]
 })
 export class IxBuilderComponent implements AfterContentInit, AfterViewInit {
@@ -47,11 +48,11 @@ export class IxBuilderComponent implements AfterContentInit, AfterViewInit {
   @ContentChildren(IxOptionComponent) options: QueryList<IxOptionComponent>;
 
   @Input() open: boolean;
-  //@Output() change = new EventEmitter();
   @Output() toggle = new EventEmitter();
 
   private elem = null;
   private renderer: Renderer;
+  private windowHeight;
 
   constructor(renderer: Renderer, elemRef: ElementRef) {
     this.elem = elemRef.nativeElement;
@@ -59,16 +60,12 @@ export class IxBuilderComponent implements AfterContentInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    //this.title.emit('<-- select -->');
-    //this.renderer.attachViewAfter()
+
   }
 
   // contentChildren are set
   ngAfterContentInit() {
     this.options.changes.do(change => console.log('observable change', [change])).subscribe();
-    // let initialSelectedOptions = this.options.filter(o => o.value === this.ngModel);
-    // if (initialSelectedOptions.length)
-    //   this.selectOption(initialSelectedOptions[0]);
   }
 
   isBlur($event) {
@@ -77,6 +74,7 @@ export class IxBuilderComponent implements AfterContentInit, AfterViewInit {
   }
 
   isDropup() {
+    //console.log('this.elem', [this.elem, this.windowHeight]);
     return false;
     //this.elem.getBoundingClientRect()
   }
@@ -87,16 +85,7 @@ export class IxBuilderComponent implements AfterContentInit, AfterViewInit {
   }
 
   selectOption(option: IxOptionComponent) {
-    // deactivate all options
-    //this.options.toArray().forEach(option => option.active = false);
 
-    //option.active = true;
-
-    //this.setNgModel(option);
-
-    //this.setTitle(option);
-
-    //this.change.emit(option);
   }
 
 }

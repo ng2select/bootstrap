@@ -1,1 +1,1 @@
-export { ComboSelectComponent } from './combo.component';
+export { ComboSelectComponent } from './select';

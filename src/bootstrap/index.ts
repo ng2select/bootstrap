@@ -1,1 +1,2 @@
-export { BootstrapSelectComponent } from './bootstrap.component';
+export { BootstrapSelectComponent } from './select';
+export { BootstrapMultiSelectComponent } from './multi-select';

@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "angular-cli": "0.0.*",
+    "benchmark": "^2.1.0",
     "bootstrap-select": "1.10.0",
     "clang-format": "^1.0.35",
     "codelyzer": "0.0.14",

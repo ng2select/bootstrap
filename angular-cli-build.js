@@ -16,6 +16,7 @@ module.exports = function(defaults) {
       'bootstrap/dist/**',
       'bootstrap-select/dist/**',
       'highlight.js/**',
+      'benchmark/**'
     ]
   });
 };

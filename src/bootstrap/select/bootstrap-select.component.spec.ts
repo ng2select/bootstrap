@@ -9,7 +9,7 @@ import {
 import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { BootstrapSelectComponent } from './bootstrap.component';
+import { BootstrapSelectComponent } from './bootstrap-select.component';
 
 describe('Component: BootstrapSelect', () => {
   let builder: TestComponentBuilder;

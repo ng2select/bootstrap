@@ -31,7 +31,7 @@ import { ExampleLayoutComponent, ExampleService, IUser } from '../shared';
 })
 export class CustomComponent implements OnInit {
   public open: boolean = false;
-  public ngModel = null;
+  public ngModel = 14;
   public options: Observable<IUser[]>;
 
   constructor(public exampleSvc: ExampleService) { }

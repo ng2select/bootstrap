@@ -14,6 +14,12 @@ const packages: any = {
 
 };
 
+const paths: any = {
+  // 'benchmark': 'vendor/benchmark/benchmark.js',
+  // 'lodash': 'vendor/benchmark/node_modules/lodash/lodash.js',
+  // 'platform': 'vendor/benchmark/node_modules/platform/platform.js'
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////
 /***********************************************************************************************
  * Everything underneath this line is managed by the CLI.
@@ -44,8 +50,12 @@ const barrels: string[] = [
   'core',
   'core/shared',
   'bootstrap',
+  'bootstrap/select',
+  'bootstrap/multi-select',
   'combo',
-  'jquery'
+  'combo/select',
+  'jquery',
+  //'benchmark'
 
   /** @cli-barrel */
 ];
@@ -69,4 +79,4 @@ System.config({
 });
 
 // Apply the user's configuration.
-System.config({ map, packages });
+System.config({ map, packages, paths });
