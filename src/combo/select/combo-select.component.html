@@ -1,7 +1,7 @@
-<ix-select-builder (toggle)="toggle($event)" [open]="open" class="btn-group bootstrap-select show-tick" [ngClass]="{'open': open, 'dropup': isDropup()}">
+<ix-select-builder (toggle)="toggle($event)" [open]="open" class="btn-group bootstrap-select show-tick" [ngClass]="{'open': open, 'dropup': isDropup()}" (keydown)="onKeydown($event)">
 
     <ix-display>
-        <input type="text" class="filter-option pull-left col-sm-10" (blur)="onBlur($event)" (change)="onComboInputChange($event)" (focus)="onFocus($event)" (keydown)="onKeydown($event)" [(ngModel)]="inputTitle" />
+        <input type="text" class="filter-option pull-left col-sm-10" (blur)="onBlur($event)" (change)="onComboInputChange($event)" (focus)="onFocus($event)" (keydown)="onInputKeydown($event)" [(ngModel)]="inputTitle" />
 
         <span (click)="toggle(!open)" class="btn btn-default col-sm-2">
             <span class="bs-caret"><span class="caret"></span></span>

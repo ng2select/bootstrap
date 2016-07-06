@@ -18,9 +18,11 @@ import {
     ViewChildren
 } from '@angular/core';
 import { COMMON_DIRECTIVES, COMMON_PIPES, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/common';
-import { Observable } from 'rxjs/Rx';
-import { IX_DIRECTIVES, KEYCODE, IxOptionComponent } from '../../core';
+import { Observable, Subject } from 'rxjs/Rx';
+import { IX_DIRECTIVES, KEYCODE, IxOptionComponent, NgModelInputValueProvider } from '../../core';
 import { ComboSelect } from '../combo-select';
+
+//const COMBO_CONTROL_VALUE_ACCESSOR = new NgModelInputValueProvider(ComboSelectComponent);
 
 const COMBO_CONTROL_VALUE_ACCESSOR = new Provider(
     NG_VALUE_ACCESSOR, {
@@ -87,11 +89,23 @@ export class ComboSelectComponent extends ComboSelect implements OnInit, AfterCo
     onKeydown($event): void {
         console.warn('$event', [$event]);
         switch ($event.keyCode) {
-            case KEYCODE.ENTER:
-                this.onBlur($event);
-                break;
             case KEYCODE.DOWN:
                 this.toggle(true);
+                // let values = this.options.map(); //.filter(o => o.value == this.ngModel);
+                //
+                //
+                // this.setNgModelSingleselect(option);
+                break;
+            default:
+                break;
+        }
+    }
+
+    onInputKeydown($event): void {
+        console.warn('$event', [$event]);
+        switch ($event.keyCode) {
+            case KEYCODE.ENTER:
+                this.onBlur($event);
                 break;
             default:
                 break;

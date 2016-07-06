@@ -27,7 +27,6 @@ import { IX_DOM_CONSTANTS } from './shared';
   template: `
     <a (click)="onClick()">
         <ng-content></ng-content>
-        <!-- <i class="fa fa-check"></i> -->
         <span class="glyphicon glyphicon-ok check-mark"></span>
     </a>
   `

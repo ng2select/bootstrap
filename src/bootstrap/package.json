@@ -1,0 +1,18 @@
+{
+  "name": "@ng2select/bootstrap",
+  "version": "0.1.0",
+  "main": "index.js",
+  "typings": "index.d.ts",
+  "author": {
+    "name": "ng2select"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/core": "2.0.0-rc.1",
+    "@angular/common": "2.0.0-rc.1",
+    "@ng2select/core": "0.1.1"
+  },
+  "scripts": {},
+  "directories": {},
+  "readme": "readme.md"
+}

@@ -21,8 +21,10 @@ import {
 } from '@angular/core';
 import { COMMON_DIRECTIVES, COMMON_PIPES, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/common';
 import { Observable, Subject } from 'rxjs/Rx';
-import { IX_DIRECTIVES, IxOptionComponent } from '../../core';
+import { IX_DIRECTIVES, IxOptionComponent, NgModelInputValueProvider } from '../../core';
 import { BootstrapSelect } from '../bootstrap-select';
+
+//const BOOTSTRAP_CONTROL_VALUE_ACCESSOR = new NgModelInputValueProvider(BootstrapSelectComponent);
 
 const BOOTSTRAP_CONTROL_VALUE_ACCESSOR = new Provider(
     NG_VALUE_ACCESSOR, {
