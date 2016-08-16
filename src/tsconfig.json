@@ -69,6 +69,7 @@
     "core/index.ts",
     "core/ng-model-input.ts",
     "core/option.component.ts",
+    "core/shared.ts",
     "core/shared/builder.service.spec.ts",
     "core/shared/builder.service.ts",
     "core/shared/index.ts",
