@@ -17,18 +17,11 @@ import {
     Provider,
     ViewChildren
 } from '@angular/core';
-import { COMMON_DIRECTIVES, COMMON_PIPES, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/common';
+import { COMMON_DIRECTIVES, COMMON_PIPES } from '@angular/common';
 import { Observable, Subject } from 'rxjs/Rx';
-import { IX_DIRECTIVES, KEYCODE, IxOptionComponent, NgModelInputValueProvider } from '../../core';
+
+import { IX_DIRECTIVES, KEYCODE, IxOptionComponent, NgModelInputValueAccessor } from '../../core';
 import { ComboSelect } from '../combo-select';
-
-//const COMBO_CONTROL_VALUE_ACCESSOR = new NgModelInputValueProvider(ComboSelectComponent);
-
-const COMBO_CONTROL_VALUE_ACCESSOR = new Provider(
-    NG_VALUE_ACCESSOR, {
-        useExisting: forwardRef(() => ComboSelectComponent),
-        multi: true
-    });
 
 @Component({
     moduleId: module.id,
@@ -37,9 +30,9 @@ const COMBO_CONTROL_VALUE_ACCESSOR = new Provider(
     styleUrls: ['combo-select.component.css'],
     directives: [COMMON_DIRECTIVES, IX_DIRECTIVES],
     pipes: [COMMON_PIPES],
-    providers: [COMBO_CONTROL_VALUE_ACCESSOR]
+    providers: [new NgModelInputValueAccessor(ComboSelectComponent)]
 })
-export class ComboSelectComponent extends ComboSelect implements OnInit, AfterContentInit, ControlValueAccessor {
+export class ComboSelectComponent extends ComboSelect implements OnInit, AfterContentInit {
 
     constructor() { super(); }
 
@@ -149,5 +142,4 @@ export class ComboSelectComponent extends ComboSelect implements OnInit, AfterCo
         if (this.options)
             this.syncNgModelSingleselect(newVal);
     }
-
 }

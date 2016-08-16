@@ -1,5 +1,4 @@
 import { Component, Input, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
-import { FORM_DIRECTIVES } from '@angular/common';
 import { HTTP_PROVIDERS } from '@angular/http';
 import { COMMON_DIRECTIVES, COMMON_PIPES } from '@angular/common';
 import { Observable } from 'rxjs/Rx';
@@ -16,7 +15,6 @@ import { UiUxComponent } from './ui-ux';
   templateUrl: 'select.component.html',
   styleUrls: ['select.component.css'],
   directives: [CustomComponent, HttpComponent, PlaygroundComponent, UiUxComponent],
-  providers: [HTTP_PROVIDERS, ExampleService, ExceptionService],
   pipes: [COMMON_PIPES]
   //encapsulation: ViewEncapsulation.None
 })

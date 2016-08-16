@@ -1,6 +1,6 @@
 {
   "name": "@ng2select/jquery",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "main": "index.js",
   "typings": "index.d.ts",
   "author": {
@@ -15,7 +15,7 @@
   "directories": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/ng2select/bootstrap/tree/master/src/jquery"
+    "url": "git+https://github.com/ng2select/bootstrap.git"
   },
-  "homepage": "https://github.com/ng2select/bootstrap/tree/master/src/jquery"
+  "homepage": "https://github.com/ng2select/bootstrap"
 }

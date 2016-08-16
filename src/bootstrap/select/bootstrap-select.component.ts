@@ -19,18 +19,11 @@ import {
     OnChanges,
     SimpleChange
 } from '@angular/core';
-import { COMMON_DIRECTIVES, COMMON_PIPES, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/common';
+import { COMMON_DIRECTIVES, COMMON_PIPES } from '@angular/common';
 import { Observable, Subject } from 'rxjs/Rx';
-import { IX_DIRECTIVES, IxOptionComponent, NgModelInputValueProvider } from '../../core';
+
+import { IX_DIRECTIVES, IxOptionComponent, NgModelInputValueAccessor } from '../../core';
 import { BootstrapSelect } from '../bootstrap-select';
-
-//const BOOTSTRAP_CONTROL_VALUE_ACCESSOR = new NgModelInputValueProvider(BootstrapSelectComponent);
-
-const BOOTSTRAP_CONTROL_VALUE_ACCESSOR = new Provider(
-    NG_VALUE_ACCESSOR, {
-        useExisting: forwardRef(() => BootstrapSelectComponent),
-        multi: true
-    });
 
 @Component({
     moduleId: module.id,
@@ -39,9 +32,9 @@ const BOOTSTRAP_CONTROL_VALUE_ACCESSOR = new Provider(
     styleUrls: ['bootstrap-select.component.css'],
     directives: [COMMON_DIRECTIVES, IX_DIRECTIVES],
     pipes: [COMMON_PIPES],
-    providers: [BOOTSTRAP_CONTROL_VALUE_ACCESSOR]
+    providers: [new NgModelInputValueAccessor(BootstrapSelectComponent)]
 })
-export class BootstrapSelectComponent extends BootstrapSelect implements OnInit, AfterContentInit, ControlValueAccessor {
+export class BootstrapSelectComponent extends BootstrapSelect implements OnInit, AfterContentInit {
 
     constructor() { super(); }
 
@@ -56,32 +49,15 @@ export class BootstrapSelectComponent extends BootstrapSelect implements OnInit,
 
             option.click.subscribe(o => this.setNgModelSingleselect(o));
         }));
-
-        // if(this.ngModel[0])
-        //     this.onChange(this.options.filter(o => o.value == this.ngModel[0])[0]);
     }
 
     onBlur($event) {
-        //console.log('blur => this.options', this.options);
-    }
 
-    // ngOnChanges(changes: {[key: string]: SimpleChange;}){
-    //     let ngModelChange = changes['ngModel'];
-    //     if(ngModelChange && !ngModelChange.isFirstChange()){
-    //         this.onChange(this.options.filter(o => o.value == ngModelChange.currentValue)[0])
-    //     }
-    // }
+    }
 
     isDropup() {
 
     }
-
-    // onChange(option: IxOptionComponent) {
-    //     if (!option || !option.elem)
-    //         return;
-
-    //     return this.setNgModelSingleselect(option);
-    // }
 
     setNgModelSingleselect(option: IxOptionComponent) {
         /* Set all option's active property as false using the observable list */

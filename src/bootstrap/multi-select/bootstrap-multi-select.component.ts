@@ -19,18 +19,11 @@ import {
     OnChanges,
     SimpleChange
 } from '@angular/core';
-import { COMMON_DIRECTIVES, COMMON_PIPES, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/common';
+import { COMMON_DIRECTIVES, COMMON_PIPES } from '@angular/common';
 import { Observable, Subject } from 'rxjs/Rx';
-import { IX_DIRECTIVES, IxOptionComponent } from '../../core';
+
+import { IX_DIRECTIVES, IxOptionComponent, NgModelInputValueAccessor } from '../../core';
 import { BootstrapSelect } from '../bootstrap-select';
-
-const noop = () => { };
-
-const BOOTSTRAP_CONTROL_VALUE_ACCESSOR = new Provider(
-    NG_VALUE_ACCESSOR, {
-        useExisting: forwardRef(() => BootstrapMultiSelectComponent),
-        multi: true
-    });
 
 @Component({
     moduleId: module.id,
@@ -39,9 +32,9 @@ const BOOTSTRAP_CONTROL_VALUE_ACCESSOR = new Provider(
     styleUrls: ['bootstrap-multi-select.component.css'],
     directives: [COMMON_DIRECTIVES, IX_DIRECTIVES],
     pipes: [COMMON_PIPES],
-    providers: [BOOTSTRAP_CONTROL_VALUE_ACCESSOR]
+    providers: [new NgModelInputValueAccessor(BootstrapMultiSelectComponent)]
 })
-export class BootstrapMultiSelectComponent extends BootstrapSelect implements OnInit, AfterContentInit, AfterViewInit, ControlValueAccessor {
+export class BootstrapMultiSelectComponent extends BootstrapSelect implements OnInit, AfterContentInit, AfterViewInit {
 
     constructor() { super(); }
 
@@ -59,26 +52,12 @@ export class BootstrapMultiSelectComponent extends BootstrapSelect implements On
     }
 
     ngAfterViewInit() {
-        //console.log('#builder', this.builder);
+
     }
 
     onBlur($event) {
-        //console.log('blur => this.options', this.options);
+
     }
-
-    // ngOnChanges(changes: {[key: string]: SimpleChange;}){
-    //     let ngModelChange = changes['ngModel'];
-    //     if(ngModelChange && !ngModelChange.isFirstChange()){
-    //         this.onChange(this.options.filter(o => o.value == ngModelChange.currentValue)[0])
-    //     }
-    // }
-
-    // onChange(option: IxOptionComponent) {
-    //     if (!option || !option.elem)
-    //         return;
-
-    //     return this.setNgModelMultiselect(option);
-    // }
 
     selectAll() {
         /* Set all options as active using the observable list */
