@@ -15,47 +15,29 @@ http://ng2select.github.io/bootstrap/
 _powered by:_
 https://silviomoreto.github.io/bootstrap-select/
 
-### optional config strongly-typed interface
-
-```TypeScript
-
-export interface INg2SelectConfig {
-  actionsBox?: boolean;
-  style?: string;
-  size?: number;
-  title?: string;
-  liveSearch?: boolean;
-  mobile?: boolean;
-  multipleSeparator?: string;
-  noneSelectedText?: string;
-  selectedTextFormat?: string;
-  showContent?: boolean;
-  width?: string
-}
-
-```
-
-### multiselect example (configured primarily in the view)
+## select-builder-component
 
 ```HTML
 
-<select [(ngModel)]="selectedOptionIds" multiple>
-  <option *ngFor="let option of selectOptions" [value]="option.id">
-    {{ option.name }}
-  </option>
-</select>
+<ix-select-builder (toggle)="toggle($event)" [open]="open" class="btn-group bootstrap-select show-tick" [ngClass]="{'open': open, 'dropup': isDropup()}" (keydown)="onKeydown($event)">
 
-```
+    <ix-display>
+        <input type="text" class="filter-option pull-left col-sm-10" (blur)="onBlur($event)" (change)="onComboInputChange($event)" (focus)="onFocus($event)" (keydown)="onInputKeydown($event)" [(ngModel)]="inputTitle" />
 
-### singleselect example (similar ui/ux w/practically identical configuration!!)
+        <span (click)="toggle(!open)" class="btn btn-default col-sm-2">
+            <span class="bs-caret"><span class="caret"></span></span>
+        </span>
+    </ix-display>
 
-```HTML
+    <div class="dropdown-menu" [class.open]="open">
 
-<select [(ngModel)]="selectedOptionId">
-  <option *ngFor="let option of selectOptions" [value]="option.id">
-    {{ option.name }}
-  </option>
-</select>
+      <ul class="dropdown-menu inner" style="max-height: 104px; overflow-y: auto;">
+        <ng-content></ng-content>
+      </ul>
+
+    </div>
+
+</ix-select-builder>
 
 ```
 

@@ -1,5 +1,5 @@
 {
-  "name": "@ng2select/bootstrap",
+  "name": "@ng2select/jquery",
   "version": "0.1.0",
   "main": "index.js",
   "typings": "index.d.ts",
@@ -9,7 +9,7 @@
   "license": "MIT",
   "peerDependencies": {
     "@ng2select/core": "0.x",
-    "bootstrap": "3.x",
+    "jquery": "2.x",
   },
   "scripts": {},
   "directories": {},
