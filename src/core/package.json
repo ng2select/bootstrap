@@ -1,24 +1,23 @@
 {
   "name": "@ng2select/core",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "index.js",
   "typings": "index.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ng2select/bootstrap.git"
-  },
   "author": {
     "name": "ng2select"
   },
   "license": "MIT",
   "peerDependencies": {
-    "@angular/core": "2.0.0-rc.4",
-    "@angular/common": "2.0.0-rc.4"
+    "@angular/core": "2.x",
+    "@angular/common": "2.x"
   },
-  "_id": "@ng2select/core@0.1.1",
   "scripts": {},
-  "_npmVersion": "3.8.7",
-  "_nodeVersion": "5.4.1",
   "directories": {},
-  "readme": "readme.md"
+  "readme": "readme.md",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ng2select/bootstrap.git"
+  },
+  "homepage": "http://ng2select.github.io/bootstrap/"
 }

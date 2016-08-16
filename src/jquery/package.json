@@ -1,6 +1,6 @@
 {
   "name": "@ng2select/jquery",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "index.js",
   "typings": "index.d.ts",
   "author": {
@@ -13,5 +13,11 @@
   },
   "scripts": {},
   "directories": {},
-  "readme": "readme.md"
+  "readme": "readme.md",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ng2select/bootstrap.git"
+  },
+  "homepage": "http://ng2select.github.io/bootstrap/"
 }
