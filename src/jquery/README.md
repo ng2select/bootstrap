@@ -8,7 +8,7 @@
 
 ## beta
 
-general-purpose angular2 combo-select directive module
+general-purpose angular2 jquery-select directive module
 
 http://ng2select.github.io/bootstrap/
 
