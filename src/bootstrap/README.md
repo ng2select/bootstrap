@@ -13,47 +13,50 @@ general-purpose angular2 bootstrap select/multiselect directive module
 http://ng2select.github.io/bootstrap/
 
  
-### optional config strongly-typed interface
-
-```TypeScript
-
-export interface INg2SelectConfig {
-  actionsBox?: boolean;
-  style?: string;
-  size?: number;
-  title?: string;
-  liveSearch?: boolean;
-  mobile?: boolean;
-  multipleSeparator?: string;
-  noneSelectedText?: string;
-  selectedTextFormat?: string;
-  showContent?: boolean;
-  width?: string
-}
-
-```
-
-### multiselect example (configured primarily in the view)
+## bootstrap-single-select
 
 ```HTML
 
-<select [(ngModel)]="selectedOptionIds" multiple>
-  <option *ngFor="let option of selectOptions" [value]="option.id">
-    {{ option.name }}
-  </option>
-</select>
+            <ix-bootstrap-select (change)="onChange($event)" [(ngModel)]="ngModel">
+                <li *ngFor="let option of options | async" [value]="option.id" [title]="option.name">
+                    <img [src]="option.gravatarSrc" height="20" width="20" />
+                    <span>{{option.name}}</span>
+                </li>
+            </ix-bootstrap-select>
+
+            <span class="red">{{ngModel | json}}</span>
+
+            <ix-bootstrap-select (change)="onChange($event)" [(ngModel)]="ngModel">
+                <li *ngFor="let option of options | async" [value]="option.id" [title]="option.name">
+                    <span>{{option.name}}</span>
+                </li>
+            </ix-bootstrap-select>
+
+            <span class="red">{{ngModel | json}}</span>
+
 
 ```
 
-### singleselect example (similar ui/ux w/practically identical configuration!!)
+## bootstrap-multiselect
 
 ```HTML
 
-<select [(ngModel)]="selectedOptionId">
-  <option *ngFor="let option of selectOptions" [value]="option.id">
-    {{ option.name }}
-  </option>
-</select>
+            <ix-bootstrap-select (change)="onChange($event)" [(ngModel)]="ngModelAry" multiple>
+                <li *ngFor="let option of options | async" [value]="option.id" [title]="option.name">
+                    <img [src]="option.gravatarSrc" height="20" width="20" />
+                    <span>{{option.name}}</span>
+                </li>
+            </ix-bootstrap-select>
+
+            <span class="red">{{ngModelAry | json}}</span>
+
+            <ix-bootstrap-select (change)="onChange($event)" [(ngModel)]="ngModelAry" multiple>
+                <li *ngFor="let option of options | async" [value]="option.id" [title]="option.name">
+                    <span>{{option.name}}</span>
+                </li>
+            </ix-bootstrap-select>
+
+            <span class="red">{{ngModelAry | json}}</span>
 
 ```
 
