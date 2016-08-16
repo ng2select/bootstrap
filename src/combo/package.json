@@ -1,6 +1,6 @@
 {
   "name": "@ng2select/combo",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "index.js",
   "typings": "index.d.ts",
   "author": {
@@ -12,11 +12,9 @@
   },
   "scripts": {},
   "directories": {},
-  "readme": "./readme.md",
-  "private": false,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ng2select/bootstrap.git"
+    "url": "https://github.com/ng2select/bootstrap.git"
   },
   "homepage": "https://github.com/ng2select/bootstrap/tree/master/src/combo"
 }

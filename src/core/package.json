@@ -1,6 +1,6 @@
 {
   "name": "@ng2select/core",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "main": "index.js",
   "typings": "index.d.ts",
   "author": {
@@ -15,7 +15,7 @@
   "directories": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ng2select/bootstrap/tree/master/src/core/"
+    "url": "https://github.com/ng2select/bootstrap/tree/master/src/core"
   },
-  "homepage": "https://github.com/ng2select/bootstrap/tree/master/src/core/"
+  "homepage": "https://github.com/ng2select/bootstrap/tree/master/src/core"
 }

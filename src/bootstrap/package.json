@@ -1,6 +1,6 @@
 {
   "name": "@ng2select/bootstrap",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "main": "index.js",
   "typings": "index.d.ts",
   "author": {
@@ -15,7 +15,7 @@
   "directories": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ng2select/bootstrap.git"
+    "url": "https://github.com/ng2select/bootstrap.git"
   },
   "homepage": "https://github.com/ng2select/bootstrap/tree/master/src/bootstrap"
 }
