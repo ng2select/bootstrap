@@ -1,11 +1,21 @@
 {
   "ambientDevDependencies": {
     "angular-protractor": "registry:dt/angular-protractor#1.5.0+20160425143459",
-    "benchmark": "registry:dt/benchmark#1.0.0+20160317120654",
-    "jasmine": "registry:dt/jasmine#2.2.0+20160412134438",
-    "selenium-webdriver": "registry:dt/selenium-webdriver#2.44.0+20160317120654"
+    "selenium-webdriver": "registry:dt/selenium-webdriver#2.44.0+20160317120654",
+    "moment": "github:DefinitelyTyped/DefinitelyTyped/moment/moment.d.ts#99942cab1446292c79c4328218abd37621505112",
+    "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#bcd5761826eb567876c197ccc6a87c4d05731054",
+    "moment-node": "github:DefinitelyTyped/DefinitelyTyped/moment/moment-node.d.ts#bcd5761826eb567876c197ccc6a87c4d05731054",
+    "yargs": "github:DefinitelyTyped/DefinitelyTyped/yargs/yargs.d.ts#bcd5761826eb567876c197ccc6a87c4d05731054",
+    "chance": "github:DefinitelyTyped/DefinitelyTyped/chance/chance.d.ts#c75063a8915cc78043d399320c91c51f75f8a617"
   },
   "ambientDependencies": {
-    "es6-shim": "registry:dt/es6-shim#0.31.2+20160317120654"
+
+  },
+  "globalDependencies": {
+    "jquery": "registry:dt/jquery#1.10.0+20160704162008",
+    "bootstrap": "registry:dt/bootstrap#3.3.5+20160619023404",
+    "ckeditor": "registry:dt/ckeditor#0.0.0+20160620141711",
+    "es6-shim": "registry:dt/es6-shim#0.31.2+20160317120654",
+    "jasmine": "registry:dt/jasmine#2.2.0+20160621224255"
   }
 }

@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit, ViewEncapsulation } from '@angular/core';
-import * as hljs from 'highlight.js';
+// import * as hljs from 'highlight.js';
 
 @Component({
   moduleId: module.id,

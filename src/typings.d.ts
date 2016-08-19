@@ -1,4 +1,7 @@
-/// <reference path="../typings/browser.d.ts" />
-/// <reference path="./typings/custom.d.ts" />
+/// <reference path="../typings/index.d.ts" />
 
 declare var module: { id: string };
+
+interface JQuery {
+  selectpicker(options?: any);
+}

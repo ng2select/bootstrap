@@ -1,0 +1,155 @@
+<!-- bootstrap-select -->
+<app-example-layout>
+    <ng2-title>Bootstrap</ng2-title>
+    <ng2-example>
+
+        <div class="row">
+
+            <h3 class="red">Singleselect</h3>
+
+            <ix-bootstrap-select (change)="onChange($event)" [(ngModel)]="ngModel">
+                <li *ngFor="let option of options | async" [value]="option.id" [title]="option.name">
+                    <!-- <img [src]="option.gravatarSrc" height="20" width="20" /> -->
+                    <span>{{option.name}}</span>
+                </li>
+            </ix-bootstrap-select>
+
+            <span class="red">{{ngModel | json}}</span>
+
+            <!-- <ix-bootstrap-select (change)="onChange($event)" [(ngModel)]="ngModel">
+                <li *ngFor="let option of options | async" [value]="option.id" [title]="option.name">
+                    <span>{{option.name}}</span>
+                </li>
+            </ix-bootstrap-select>
+
+            <span class="red">{{ngModel | json}}</span> -->
+
+        </div>
+
+        <!-- <div class="row">
+
+            <h3 class="red">Multiselect</h3>
+
+            <ix-bootstrap-select (change)="onChange($event)" [(ngModel)]="ngModelAry" multiple>
+                <li *ngFor="let option of options | async" [value]="option.id" [title]="option.name">
+                    <img [src]="option.gravatarSrc" height="20" width="20" />
+                    <span>{{option.name}}</span>
+                </li>
+            </ix-bootstrap-select>
+
+            <span class="red">{{ngModelAry | json}}</span>
+
+            <ix-bootstrap-select (change)="onChange($event)" [(ngModel)]="ngModelAry" multiple>
+                <li *ngFor="let option of options | async" [value]="option.id" [title]="option.name">
+                    <span>{{option.name}}</span>
+                </li>
+            </ix-bootstrap-select>
+
+            <span class="red">{{ngModelAry | json}}</span>
+
+        </div> -->
+
+    </ng2-example>
+    <ng2-code-highlight>
+        *ngFor="let option of options | async"
+    </ng2-code-highlight>
+</app-example-layout>
+
+<!-- combo-select -->
+<!-- <app-example-layout>
+    <ng2-title>Comboselect <span>(combobox)</span></ng2-title>
+    <ng2-example>
+
+        <ix-combo-select (change)="onChange($event)" [(ngModel)]="ngModel">
+            <li *ngFor="let option of options | async" [value]="option.id" [title]="option.name">
+                <img [src]="option.gravatarSrc" height="20" width="20" />
+                <span>{{option.name}}</span>
+            </li>
+        </ix-combo-select>
+
+        <span class="red">{{ngModel | json}}</span>
+
+        <ix-combo-select (change)="onChange($event)" [(ngModel)]="ngModel">
+            <li *ngFor="let option of options | async" [value]="option.id" [title]="option.name">
+                <img [src]="option.gravatarSrc" height="20" width="20" />
+                <span>{{option.name}}</span>
+            </li>
+        </ix-combo-select>
+
+        <span class="red">{{ngModel | json}}</span>
+
+    </ng2-example>
+    <ng2-code-highlight>
+        *ngFor="let option of options | async"
+    </ng2-code-highlight>
+</app-example-layout> -->
+
+<!-- jquery-select -->
+<!-- <app-example-layout>
+  <ng2-title>Jquery <span>(async/observable)</span></ng2-title>
+  <ng2-example>
+
+    <div class="row">
+
+    <h3 class="red">Singleselect</h3>
+
+    <select class="show-tick" [(ngModel)]="ngModel" multiple data-actions-box="true" data-style="btn-success">
+      <option *ngFor="let user of users | async" [value]="user.id">
+        {{ user.name }}
+      </option>
+    </select>
+
+    </div>
+
+  </ng2-example>
+  <ng2-code-highlight>
+    *ngFor="let user of users | async"
+  </ng2-code-highlight>
+</app-example-layout> -->
+
+<!-- <app-example-layout>
+  <ng2-title>UI/UX</ng2-title>
+  <ng2-example>
+
+    <select class="show-tick" [(ngModel)]="ngModel['basicMultiselect']" multiple data-actions-box="true" style="background-color: white; border: 1px solid grey;">
+      <option *ngFor="let option of selectOptions" [value]="option.id">
+        {{ option.name }}
+      </option>
+    </select>
+
+    <select class="show-tick" [(ngModel)]="ngModel['singleselect']" data-style="btn-primary">
+      <option *ngFor="let option of selectOptions" [value]="option.id">
+        {{ option.name }}
+      </option>
+    </select>
+
+    <select class="show-tick" [(ngModel)]="ngModel['multiselect']" multiple data-actions-box="true" data-style="btn-info">
+      <option *ngFor="let option of selectOptions" [value]="option.id">
+        {{ option.name }}
+      </option>
+    </select>
+
+    <select class="show-tick" [(ngModel)]="ngModel['singleselect2']" data-style="btn-success">
+      <option *ngFor="let option of selectOptions" [value]="option.id">
+        {{ option.name }}
+      </option>
+    </select>
+
+    <select class="show-tick" [(ngModel)]="ngModel['multiselect2']" multiple data-actions-box="false" data-style="btn-warning">
+      <option *ngFor="let option of selectOptions" [value]="option.id">
+        {{ option.name }}
+      </option>
+    </select>
+
+    <select class="show-tick" [(ngModel)]="ngModel['singleselect3']" data-style="btn-danger">
+      <option [value]="">< select ></option>
+      <option *ngFor="let option of selectOptions" [value]="option.id">
+        {{ option.name }}
+      </option>
+    </select>
+
+  </ng2-example>
+  <ng2-code-highlight>
+    {{ngModel | json}}
+  </ng2-code-highlight>
+</app-example-layout> -->

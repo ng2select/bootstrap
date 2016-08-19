@@ -1,0 +1,22 @@
+{
+  "name": "@ng2select/core",
+  "version": "0.2.8",
+  "main": "index.js",
+  "typings": "index.d.ts",
+  "author": {
+    "name": "ng2select"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/core": ">= 2.0.0-rc.3",
+    "@angular/common": ">= 2.0.0-rc.3",
+    "@angular/forms": ">= 0.2.0"
+  },
+  "scripts": {},
+  "directories": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ng2select/bootstrap.git"
+  },
+  "homepage": "https://github.com/ng2select/bootstrap"
+}

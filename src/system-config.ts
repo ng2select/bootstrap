@@ -58,6 +58,7 @@ const barrels: string[] = [
   'jquery',
   //'benchmark'
 
+  'app/demo',
   /** @cli-barrel */
 ];
 
