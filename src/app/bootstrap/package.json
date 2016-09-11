@@ -1,6 +1,6 @@
 {
   "name": "@ng2select/bootstrap",
-  "version": "0.2.8",
+  "version": "0.2.7",
   "main": "index.js",
   "typings": "index.d.ts",
   "author": {

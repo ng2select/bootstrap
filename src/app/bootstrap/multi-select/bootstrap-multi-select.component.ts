@@ -43,25 +43,12 @@ export class BootstrapMultiSelectComponent extends BootstrapSelect implements On
     }
 
     ngAfterContentInit() {
-        // this.options.changes.subscribe(options => options.forEach(option => {
-        //     if (this.ngModel && this.ngModel.length)
-        //         this.syncNgModelMultiselect(this.ngModel);
-        //
-        //     option.click.subscribe(o => this.toggleNgModelMultiselect(o))
-        // }));
-
-        this.options.changes.subscribe((options: IxOptionComponent[]) =>
-          options.forEach((option: IxOptionComponent) =>
-            option.click.subscribe(o => this.toggleNgModelMultiselect(o))
-          )
-        );
-
-        this.options.forEach(option => {
-            if (this.ngModel)
+        this.options.changes.subscribe(options => options.forEach(option => {
+            if (this.ngModel && this.ngModel.length)
                 this.syncNgModelMultiselect(this.ngModel);
 
-            //option.click.subscribe(o => this.setNgModelSingleselect(o));
-        });
+            option.click.subscribe(o => this.toggleNgModelMultiselect(o))
+        }));
     }
 
     ngAfterViewInit() {
